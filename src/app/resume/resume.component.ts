@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Educations, Experience } from 'src/services/proxy.service';
+import { Educations, Experience, Personal } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
 @Component({
@@ -11,8 +11,11 @@ export class ResumeComponent implements OnInit {
 
   education: Educations[];
   experience : Experience[];
+  personal : Personal ;
+
   constructor(private svc : InfosvcService) {
     this.getResumeInfo();
+    this.getGeneralInfo();
 
    }
 
@@ -25,4 +28,11 @@ export class ResumeComponent implements OnInit {
       this.experience = this.svc.Experience;
     });
   }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
+    });
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bluger } from 'src/services/proxy.service';
+import { Bluger, Personal } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 @Component({
   selector: 'app-bluger',
@@ -9,11 +9,12 @@ import { InfosvcService } from '../infosvc.service';
 export class BlugerComponent implements OnInit {
 
   bluger: Bluger[];
+  personal : Personal;
 
   constructor(private svc : InfosvcService)
   {
     this.getBlugerInfo();
-
+    this.getGeneralInfo();
   }
 
   ngOnInit(): void {
@@ -23,6 +24,12 @@ export class BlugerComponent implements OnInit {
   getBlugerInfo() {
     this.svc.getBlugerInfo(() => {
       this.bluger = this.svc.Bluger;
+    });
+  }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
     });
   }
 

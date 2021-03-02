@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Personal } from 'src/services/proxy.service';
+import { InfosvcService } from '../infosvc.service';
 
 @Component({
   selector: 'app-home',
@@ -6,12 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  personal: Personal;
+  constructor(private svc : InfosvcService)
+  {
+    this.getGeneralInfo();
+  }
 @Input () img = "url('../../assets/img/hero-bg.jpg') top right" ;
 
   ngOnInit(): void {
 
+  }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
+    });
   }
 
 }

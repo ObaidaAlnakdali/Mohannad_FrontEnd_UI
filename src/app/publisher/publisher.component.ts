@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Publisher } from 'src/services/proxy.service';
+import { Personal, Publisher } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
 @Component({
@@ -9,10 +9,12 @@ import { InfosvcService } from '../infosvc.service';
 })
 export class PublisherComponent implements OnInit {
   publisher: Publisher[];
+  personal : Personal;
 
   constructor(private svc : InfosvcService)
   {
-    this.getPublisherInfo()
+    this.getPublisherInfo();
+    this.getGeneralInfo();
 
   }
 
@@ -23,6 +25,12 @@ export class PublisherComponent implements OnInit {
   getPublisherInfo() {
     this.svc.getPublisherInfo(() => {
       this.publisher = this.svc.Publisher;
+    });
+  }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Proxy, Skills, Testimonials } from 'src/services/proxy.service';
+import { Personal, Proxy, Skills, Testimonials } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 declare var jQuery:any;
 @Component({
@@ -10,11 +10,12 @@ declare var jQuery:any;
 export class AboutComponent implements OnInit {
   skills: Skills[];
   testimonials: Testimonials[];
+  personal : Personal ;
   constructor(
-    private proxy : Proxy,
     private svc : InfosvcService
     ) {
-      this.getAboutInfo()
+      this.getAboutInfo();
+      this.getGeneralInfo();
     }
 
   ngOnInit(): void {
@@ -47,6 +48,12 @@ export class AboutComponent implements OnInit {
       this.skills = this.svc.Skills;
       this.testimonials = this.svc.testimonials;
 
+    });
+  }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
     });
   }
 

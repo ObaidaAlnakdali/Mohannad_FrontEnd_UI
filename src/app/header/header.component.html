@@ -24,10 +24,13 @@
     </nav><!-- .nav-menu -->
 
     <div class="header-social-links">
-      <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-      <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-      <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-      <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+
+      <a *ngFor="let social of social_media"
+      href={{social.URL}}
+      class={{social.NAME}} target="_blank">
+       <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+      </a>
+
     </div>
 
   </div>
