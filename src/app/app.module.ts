@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EducationComponent } from './resume/education/education.component';
 import { ExperienceComponent } from './resume/experience/experience.component';
 import { ExperienceItemComponent } from './resume/experience-item/experience-item.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CommonService,

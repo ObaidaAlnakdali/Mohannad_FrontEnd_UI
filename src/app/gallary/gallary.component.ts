@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Personal } from 'src/services/proxy.service';
+import { Personal, Gallary } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
 declare var jQuery: any;
@@ -12,14 +12,18 @@ declare var AOS: any;
 export class GallaryComponent implements OnInit {
 
   personal: Personal;
+  gallary : Gallary [];
 
   constructor(private svc : InfosvcService)
   {
+
     this.getGeneralInfo();
+    this.getGallaryInfo();
   }
 
   ngOnInit(): void {
     this.jQueryStart();
+
   }
 
 
@@ -63,6 +67,13 @@ export class GallaryComponent implements OnInit {
   getGeneralInfo() {
     this.svc.getGeneralInfo(() => {
       this.personal = this.svc.Personal;
+    });
+  }
+
+  getGallaryInfo() {
+    this.svc.getGallaryInfo(() => {
+      this.gallary = this.svc.Gallary;
+      console.log(this.gallary);
     });
   }
 

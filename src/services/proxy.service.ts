@@ -276,13 +276,6 @@ const options = { headers: headers };
 return this.api.post<Result_Edit_Gallary>(this.url, JSON.stringify(i_Gallary), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Gallary;}));
 }
-Get_Gallary_item_By_OWNER_ID(i_Params_Get_Gallary_item_By_OWNER_ID: Params_Get_Gallary_item_By_OWNER_ID) : Observable<Gallary_item[]> {
-this.url = this.APIBaseUrl + '/Get_Gallary_item_By_OWNER_ID?Ticket=' + this.common.ticket;
-const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
-const options = { headers: headers };
-return this.api.post<Result_Get_Gallary_item_By_OWNER_ID>(this.url, JSON.stringify(i_Params_Get_Gallary_item_By_OWNER_ID), options)
-.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
-}
 Get_Gallary_item_By_Where(i_Params_Get_Gallary_item_By_Where: Params_Get_Gallary_item_By_Where) : Observable<Gallary_item[]> {
 this.url = this.APIBaseUrl + '/Get_Gallary_item_By_Where?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -374,6 +367,13 @@ const options = { headers: headers };
 return this.api.post<Result_Authenticate>(this.url, JSON.stringify(i_Params_Authenticate), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
 }
+SendEmail(i_Params_SendEmail: Params_SendEmail) : Observable<void> {
+this.url = this.APIBaseUrl + '/SendEmail?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_SendEmail>(this.url, JSON.stringify(i_Params_SendEmail), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);}));
+}
 Edit_Uploaded_file(i_Uploaded_file: Uploaded_file) : Observable<Uploaded_file> {
 this.url = this.APIBaseUrl + '/Edit_Uploaded_file?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -441,7 +441,6 @@ ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
 OWNER_ID?: number;
 My_Image_Url: string;
-My_Url: string;
 My_Uploaded_files: Uploaded_file[];
 }
 export class Uploaded_file
@@ -653,7 +652,7 @@ ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
 OWNER_ID?: number;
 My_Gallary_item: Gallary_item[];
-My_Url: string;
+My_Image_Url: string;
 My_Uploaded_files: Uploaded_file[];
 }
 export class Gallary_item
@@ -670,7 +669,7 @@ ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
 OWNER_ID?: number;
 My_Gallary: Gallary;
-My_Url: string;
+My_Image_Url: string;
 My_Uploaded_files: Uploaded_file[];
 }
 export class Params_Get_Gallary_By_OWNER_ID
@@ -689,10 +688,6 @@ TOTAL_COUNT?: number;
 export class Params_Delete_Gallary
 {
 GALLARY_ID?: number;
-}
-export class Params_Get_Gallary_item_By_OWNER_ID
-{
-OWNER_ID?: number;
 }
 export class Params_Get_Gallary_item_By_Where
 {
@@ -821,6 +816,13 @@ USER_TYPE_CODE: string;
 IS_ACTIVE?: boolean;
 ENTRY_DATE: string;
 Ticket: string;
+}
+export class Params_SendEmail
+{
+name: string;
+email: string;
+supject: string;
+message: string;
 }
 export class Params_Delete_Uploaded_file
 {
@@ -971,10 +973,6 @@ My_Params_Delete_Gallary : Params_Delete_Gallary;
 export class Result_Edit_Gallary extends Action_Result {
 My_Gallary : Gallary;
 }
-export class Result_Get_Gallary_item_By_OWNER_ID extends Action_Result {
-My_Result : Gallary_item[];
-My_Params_Get_Gallary_item_By_OWNER_ID : Params_Get_Gallary_item_By_OWNER_ID;
-}
 export class Result_Get_Gallary_item_By_Where extends Action_Result {
 My_Result : Gallary_item[];
 My_Params_Get_Gallary_item_By_Where : Params_Get_Gallary_item_By_Where;
@@ -1021,6 +1019,9 @@ My_Personal : Personal;
 export class Result_Authenticate extends Action_Result {
 My_Result : User;
 My_Params_Authenticate : Params_Authenticate;
+}
+export class Result_SendEmail extends Action_Result {
+My_Params_SendEmail : Params_SendEmail;
 }
 export class Result_Edit_Uploaded_file extends Action_Result {
 My_Uploaded_file : Uploaded_file;

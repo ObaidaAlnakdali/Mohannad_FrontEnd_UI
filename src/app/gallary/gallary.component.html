@@ -20,105 +20,19 @@
         </div>
       </div> -->
 
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-
-
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <a routerLink="/discription">
+      <div class="row portfolio-container " data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-4 col-md-6 portfolio-item" *ngFor="let g of gallary">
+          <a routerLink="/discription/{{g.GALLARY_ID}}">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src={{g.My_Image_Url}} class="img-fluid" alt="">
 
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
+                <h4>{{g.TITLE}}</h4>
+                <p>{{g.DESCRIPTION}}</p>
               </div>
             </div>
           </a>
         </div>
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <a href="/discription" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox"
-            title="Portfolio Details">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <a href="/discription" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox"
-            title="Portfolio Details">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <a href="/discription" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox"
-            title="Portfolio Details">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <a href="/discription" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox"
-            title="Portfolio Details">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-
-
-
-
-        <!-- <a href="/discription" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox"
-          title="Portfolio Details">
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox"
-                    title="App 1"><i class="bx bx-plus"></i></a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </a> -->
-
-
-
-
-
-
-
       </div>
 
     </div>

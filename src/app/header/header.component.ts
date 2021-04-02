@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 (function($) {
 
-    // Smooth scroll for the navigation menu and links with .scrollto classes
+  // Smooth scroll for the navigation menu and links with .scrollto classes
+
     $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -66,6 +67,7 @@ export class HeaderComponent implements OnInit {
       }
     });
   // Mobile Navigation
+
   if ($('.nav-menu').length) {
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'

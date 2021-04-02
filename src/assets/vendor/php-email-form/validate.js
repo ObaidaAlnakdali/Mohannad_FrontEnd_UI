@@ -89,6 +89,7 @@ jQuery(document).ready(function($) {
         i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
       }
     });
+
     if (ferror) return false;
     else var str = $(this).serialize();
 
@@ -96,16 +97,14 @@ jQuery(document).ready(function($) {
     var action = $(this).attr('action');
 
     if( ! action ) {
-     //this_form.find('.loading').slideUp();
-     // this_form.find('.error-message').slideDown().html('The form action property is not set!');
      alert("Saccessful");
       return false;
     }
 
     this_form.find('.sent-message').slideUp();
     this_form.find('.error-message').slideUp();
-    //this_form.find('.loading').slideDown();
-    alert("Saccessful");
+    this_form.find('.loading').slideDown();
+    //alert("Saccessful");
 
     $.ajax({
       type: "POST",
@@ -124,6 +123,7 @@ jQuery(document).ready(function($) {
         }
       }
     });
+
     return false;
   });
 

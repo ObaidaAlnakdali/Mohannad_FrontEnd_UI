@@ -31,6 +31,7 @@ export class PublisherComponent implements OnInit {
   getGeneralInfo() {
     this.svc.getGeneralInfo(() => {
       this.personal = this.svc.Personal;
+      console.log(this.personal)
     });
   }
 

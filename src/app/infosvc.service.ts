@@ -16,7 +16,9 @@ import {
   Skills,
   Socialmedia,
   Testimonials,
-  Personal
+  Personal,
+  Gallary,
+  Params_Get_Gallary_By_ACTIVE,
 } from 'src/services/proxy.service';
 
 @Injectable()
@@ -28,49 +30,49 @@ export class InfosvcService {
   Bluger: Bluger[] = [];
   Publisher: Publisher[] = [];
   SocialMedia: Socialmedia[] = [];
+  Gallary: Gallary[] = [];
   Personal: Personal;
 
   constructor(private proxy: Proxy) {}
 
-    //--------------------General--------------------------
+  //--------------------General--------------------------
 
-    getGeneralInfo(successHandler) {
-
-      this.Personal = null;
-      const params = new Params_Get_Personal_By_PERSONAL_ID();
-      params.PERSONAL_ID = 1;
-      this.proxy.Get_Personal_By_PERSONAL_ID(params).subscribe((data: Personal) => {
+  getGeneralInfo(successHandler) {
+    this.Personal = null;
+    const params = new Params_Get_Personal_By_PERSONAL_ID();
+    params.PERSONAL_ID = 1;
+    this.proxy
+      .Get_Personal_By_PERSONAL_ID(params)
+      .subscribe((data: Personal) => {
         this.Personal = data;
         if (successHandler) {
           successHandler();
         }
       });
+  }
 
-    }
-
-    //--------------------End--General--------------------------
+  //--------------------End--General--------------------------
 
   //--------------------Header--------------------------
 
   getHeaderInfo(successHandler) {
-
     this.SocialMedia = [];
     const params = new Params_Get_Socialmedia_By_ACTIVE();
     params.ACTIVE = true;
-    this.proxy.Get_Socialmedia_By_ACTIVE(params).subscribe((data: Socialmedia[]) => {
-      this.SocialMedia = data;
-      if (successHandler) {
-        successHandler();
-      }
-    });
-
+    this.proxy
+      .Get_Socialmedia_By_ACTIVE(params)
+      .subscribe((data: Socialmedia[]) => {
+        this.SocialMedia = data;
+        if (successHandler) {
+          successHandler();
+        }
+      });
   }
 
   //--------------------End--Header--------------------------
 
   //--------------------About--------------------------
   getAboutInfo(successHandler) {
-
     this.Skills = [];
     const params = new Params_Get_Skills_By_ACTIVE();
     params.ACTIVE = true;
@@ -92,7 +94,6 @@ export class InfosvcService {
           successHandler();
         }
       });
-
   }
   //--------------------End--About--------------------------
 
@@ -143,6 +144,22 @@ export class InfosvcService {
   }
 
   //--------------------End--Publisher--------------------------
+
+  //--------------------Gallary--------------------------
+
+  getGallaryInfo(successHandler) {
+    this.Gallary = [];
+    const params = new Params_Get_Gallary_By_ACTIVE();
+    params.ACTIVE = true;
+    this.proxy.Get_Gallary_By_ACTIVE(params).subscribe((data: Gallary[]) => {
+      this.Gallary = data;
+      if (successHandler) {
+        successHandler();
+      }
+    });
+  }
+
+  //--------------------End--Gallary--------------------------
 
   //--------------------Bluger--------------------------
 

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'resume', component: ResumeComponent },
   { path: 'publisher', component: PublisherComponent },
   { path: 'gallary', component: GallaryComponent},
-  { path: 'discription', component: DiscriptionComponent },
+  { path: 'discription/:GALLARY_ID', component: DiscriptionComponent },
   { path: 'bluger', component: BlugerComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

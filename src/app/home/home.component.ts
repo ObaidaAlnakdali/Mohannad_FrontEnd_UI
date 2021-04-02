@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   {
     this.getGeneralInfo();
   }
-@Input () img = "url('../../assets/img/hero-bg.jpg') top right" ;
 
   ngOnInit(): void {
 
@@ -24,5 +23,6 @@ export class HomeComponent implements OnInit {
       this.personal = this.svc.Personal;
     });
   }
+
 
 }
