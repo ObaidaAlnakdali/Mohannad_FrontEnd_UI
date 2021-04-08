@@ -73,7 +73,6 @@ export class GallaryComponent implements OnInit {
   getGallaryInfo() {
     this.svc.getGallaryInfo(() => {
       this.gallary = this.svc.Gallary;
-      console.log(this.gallary);
     });
   }
 

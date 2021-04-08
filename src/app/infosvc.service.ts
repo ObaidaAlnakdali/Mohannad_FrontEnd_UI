@@ -19,6 +19,8 @@ import {
   Personal,
   Gallary,
   Params_Get_Gallary_By_ACTIVE,
+  Friendly_sites,
+  Params_Get_Friendly_sites_By_ACTIVE,
 } from 'src/services/proxy.service';
 
 @Injectable()
@@ -31,6 +33,7 @@ export class InfosvcService {
   Publisher: Publisher[] = [];
   SocialMedia: Socialmedia[] = [];
   Gallary: Gallary[] = [];
+  FriendlySite: Friendly_sites[] = [];
   Personal: Personal;
 
   constructor(private proxy: Proxy) {}
@@ -94,6 +97,18 @@ export class InfosvcService {
           successHandler();
         }
       });
+
+      this.FriendlySite = [];
+      const friendlySite = new Params_Get_Friendly_sites_By_ACTIVE();
+      friendlySite.ACTIVE = true;
+      this.proxy
+        .Get_Friendly_sites_By_ACTIVE(friendlySite)
+        .subscribe((data: Friendly_sites[]) => {
+          this.FriendlySite = data;
+          if (successHandler) {
+            successHandler();
+          }
+        });
   }
   //--------------------End--About--------------------------
 

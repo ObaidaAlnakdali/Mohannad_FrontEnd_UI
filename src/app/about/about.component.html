@@ -1,4 +1,4 @@
-<main id="main">
+<main id="main" *ngIf="personal != null">
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
@@ -48,10 +48,7 @@
       <div class="row skills-content col-lg-12">
 
 
-          <skills class="col-lg-6" *ngFor="let skill of skills"
-          [Name]='skill.NAME'
-          [Value]='skill.VALUE'
-          ></skills>
+        <skills class="col-lg-6" *ngFor="let skill of skills" [Name]='skill.NAME' [Value]='skill.VALUE'></skills>
 
 
       </div>
@@ -106,16 +103,45 @@
 
       <div class="owl-carousel testimonials-carousel">
         <div class="testimonial-item" *ngFor="let testimonial of testimonials">
-         <testimonials
-         [Name]= 'testimonial.NAME'
-         [Title]= 'testimonial.TITLE'
-         [Description]= 'testimonial.DESCRIPTION'
-         [My_Image_Url]= 'testimonial.My_Image_Url'
-         ></testimonials>
+          <testimonials [Name]='testimonial.NAME' [Title]='testimonial.TITLE' [Description]='testimonial.DESCRIPTION'
+            [My_Image_Url]='testimonial.My_Image_Url'></testimonials>
         </div>
       </div>
-
     </div>
   </section><!-- End Testimonials Section -->
+
+  <!-- ======= Friendly Sites Section ======= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Friendly Sites</h2>
+        <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
+      </div>
+
+      <div class="clients-slider swiper-container">
+        <div class="swiper-wrapper align-items-center">
+
+          <div class="swiper-slide" *ngFor="let site of friendlySite">
+
+             <img src={{site.My_Image_Url}} class="img-fluid" alt="">
+
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </section><!-- End Friendly Sites Section -->
 
 </main><!-- End #main -->

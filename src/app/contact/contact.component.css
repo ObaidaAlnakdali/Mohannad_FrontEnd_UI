@@ -130,6 +130,10 @@
   background: #3dc8b7;
 }
 
+.contact .php-email-form span {
+  font-size: 12px;
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);

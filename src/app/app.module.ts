@@ -22,6 +22,8 @@ import { EducationComponent } from './resume/education/education.component';
 import { ExperienceComponent } from './resume/experience/experience.component';
 import { ExperienceItemComponent } from './resume/experience-item/experience-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SwiperModule } from 'swiper/angular';
+
 
 @NgModule({
   declarations: [
@@ -48,12 +50,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SwiperModule,
   ],
   providers: [
     CommonService,
     Proxy,
-    InfosvcService
+    InfosvcService,
+
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   personal: Personal;
   constructor(private svc : InfosvcService)
   {
+
     this.getGeneralInfo();
   }
 

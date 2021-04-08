@@ -360,6 +360,34 @@ const options = { headers: headers };
 return this.api.post<Result_Edit_Personal>(this.url, JSON.stringify(i_Personal), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Personal;}));
 }
+Get_Friendly_sites_By_ACTIVE(i_Params_Get_Friendly_sites_By_ACTIVE: Params_Get_Friendly_sites_By_ACTIVE) : Observable<Friendly_sites[]> {
+this.url = this.APIBaseUrl + '/Get_Friendly_sites_By_ACTIVE?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Friendly_sites_By_ACTIVE>(this.url, JSON.stringify(i_Params_Get_Friendly_sites_By_ACTIVE), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Get_Friendly_sites_By_Where(i_Params_Get_Friendly_sites_By_Where: Params_Get_Friendly_sites_By_Where) : Observable<Friendly_sites[]> {
+this.url = this.APIBaseUrl + '/Get_Friendly_sites_By_Where?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Friendly_sites_By_Where>(this.url, JSON.stringify(i_Params_Get_Friendly_sites_By_Where), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Edit_Friendly_sites(i_Friendly_sites: Friendly_sites) : Observable<Friendly_sites> {
+this.url = this.APIBaseUrl + '/Edit_Friendly_sites?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Edit_Friendly_sites>(this.url, JSON.stringify(i_Friendly_sites), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Friendly_sites;}));
+}
+Delete_Friendly_sites(i_Params_Delete_Friendly_sites: Params_Delete_Friendly_sites) : Observable<string> {
+this.url = this.APIBaseUrl + '/Delete_Friendly_sites?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<any>(this.url, JSON.stringify(i_Params_Delete_Friendly_sites), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);return response.ExceptionMsg;}));
+}
 Authenticate(i_Params_Authenticate: Params_Authenticate) : Observable<User> {
 this.url = this.APIBaseUrl + '/Authenticate?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -801,6 +829,35 @@ START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
 }
+export class Params_Get_Friendly_sites_By_ACTIVE
+{
+ACTIVE?: boolean;
+}
+export class Friendly_sites
+{
+FRIENDLY_SITES_ID?: number;
+TITLE: string;
+URL: string;
+ACTIVE?: boolean;
+ENTRY_USER_ID?: number;
+ENTRY_DATE: string;
+OWNER_ID?: number;
+My_Image_Url: string;
+My_Uploaded_files: Uploaded_file[];
+}
+export class Params_Get_Friendly_sites_By_Where
+{
+OWNER_ID?: number;
+TITLE: string;
+URL: string;
+START_ROW?: number;
+END_ROW?: number;
+TOTAL_COUNT?: number;
+}
+export class Params_Delete_Friendly_sites
+{
+FRIENDLY_SITES_ID?: number;
+}
 export class Params_Authenticate
 {
 UserName: string;
@@ -1015,6 +1072,20 @@ My_Params_Get_Personal_By_Where : Params_Get_Personal_By_Where;
 }
 export class Result_Edit_Personal extends Action_Result {
 My_Personal : Personal;
+}
+export class Result_Get_Friendly_sites_By_ACTIVE extends Action_Result {
+My_Result : Friendly_sites[];
+My_Params_Get_Friendly_sites_By_ACTIVE : Params_Get_Friendly_sites_By_ACTIVE;
+}
+export class Result_Get_Friendly_sites_By_Where extends Action_Result {
+My_Result : Friendly_sites[];
+My_Params_Get_Friendly_sites_By_Where : Params_Get_Friendly_sites_By_Where;
+}
+export class Result_Edit_Friendly_sites extends Action_Result {
+My_Friendly_sites : Friendly_sites;
+}
+export class Result_Delete_Friendly_sites extends Action_Result {
+My_Params_Delete_Friendly_sites : Params_Delete_Friendly_sites;
 }
 export class Result_Authenticate extends Action_Result {
 My_Result : User;

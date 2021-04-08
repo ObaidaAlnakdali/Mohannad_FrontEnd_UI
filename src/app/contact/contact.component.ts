@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Params_SendEmail, Personal, Proxy } from 'src/services/proxy.service';
+import { Personal, Proxy } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
-
-declare var jQuery: any;
+import { msgContact } from './contactmsg';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +11,7 @@ declare var jQuery: any;
 })
 export class ContactComponent implements OnInit {
   personal: Personal;
+  msg = new msgContact();
 
   constructor(private svc: InfosvcService, private proxy: Proxy) {
     this.getGeneralInfo();
@@ -25,20 +25,17 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  log(x) {
-    console.log(x);
-  }
+  onSubmit() {
 
-  onSubmit(contactForm: NgForm) {
-    //this.loading = true;
-    const p = new Params_SendEmail();
-    p.name = ' hAmZa';
-    p.email = ' KK_KK_KK@gmail.com';
-    p.supject = ' RARARARORORO';
-    p.message = '   RARwelcome';
+    this.proxy.SendEmail(this.msg).subscribe(() => {
+      Swal.fire({
+        title: 'Thanks',
+        text: 'The mail has been sent successfully !!',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'OK'
+      })
 
-    this.proxy.SendEmail(p).subscribe(() => {
-      alert('The mail has been sent successfully !!');
     });
   }
 }

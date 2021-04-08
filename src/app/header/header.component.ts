@@ -111,8 +111,6 @@ export class HeaderComponent implements OnInit {
   getHeaderInfo() {
     this.svc.getHeaderInfo(() => {
       this.social_media = this.svc.SocialMedia;
-
-
     });
   }
 
