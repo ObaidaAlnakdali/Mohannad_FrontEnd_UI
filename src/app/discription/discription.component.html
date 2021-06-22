@@ -1,46 +1,65 @@
 
-<main id="main" >
+<main id="main" *ngIf="gallary_item != null" >
 
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <section id="portfolio-details" class="portfolio-details">
+    <section id="discription-details" class="discription-details" *ngFor="let item of gallary_item">
       <div class="container">
-
-        <div class=" header-social-links" >
-         <a routerLink = "/gallary" class="twitter"><i class="icofont-bubble-left icofont-5x"></i></a>
-        </div>
-
         <div class="row">
 
           <div class="col-lg-8" >
-            <h2 class="portfolio-title" >This is an example of portfolio detail</h2>
-            <div class="owl-carousel portfolio-details-carousel" >
-              <img src="" class="img-fluid" alt="">
-              <img src="../../assets/img/portfolio/portfolio-details-2.jpg" class="img-fluid" alt="">
-              <img src="../../assets/img/portfolio/portfolio-details-3.jpg" class="img-fluid" alt="">
+
+            <div class="discription-title">
+              <a routerLink = "/gallary" class="twitter"><i class="icofont-bubble-left icofont-5x"></i></a>
+              <h2>This is an example of discription detail</h2>
             </div>
+
+            <div class="slider-container">
+              <img *ngFor="let items of item.My_Uploaded_files" src={{items.My_URL}} class="img-fluid" alt="">
+            </div>
+
+            <div class="slider-controls">
+              <a id="prev" class="prev" (click)="prev()">&#10094;</a>
+              <a id="next" class="next" (click)="next()">&#10095;</a>
+            </div>
+
+            <!-- <swiper
+            [spaceBetween]="30"
+            [effect]="'fade'"
+            [navigation]="true"
+            [autoplay]="{
+              delay: 2500,
+              disableOnInteraction: false
+            }"
+            [pagination]="{
+              clickable: true
+            }"
+            class="mySwiper"
+            >
+              <ng-template swiperSlide *ngFor="let items of item.My_Uploaded_files">
+                <img src={{items.My_URL}} class="img-fluid" alt="">
+              </ng-template>
+            </swiper> -->
+
+            <!-- <div class="hand-drag twitter">
+              <i class="icofont-hand-drag2 icofont-3x"></i>
+            </div> -->
+
           </div>
 
-          <div class="col-lg-4 portfolio-info">
-            <h3>Project information</h3>
+          <div class="col-lg-4 discription-info">
+            <h3>{{item.NAME}}</h3>
             <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+              <li><strong>Category</strong>: {{item.NAME}}</li>
+              <li><strong>Project date</strong>: {{item.PROJECTDATE}}</li>
+              <li><strong>Project URL</strong>: <a href="#">{{item.PROJECTURL}}</a></li>
             </ul>
-
             <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              {{item.DESCRIPTION}}
             </p>
           </div>
-
-
         </div>
-
       </div>
-    </section><!-- End Portfolio Details Section -->
-  </section><!-- End Services Section -->
+
+    </section>
 
 </main><!-- End #main -->
 

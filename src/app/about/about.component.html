@@ -111,34 +111,25 @@
   </section><!-- End Testimonials Section -->
 
   <!-- ======= Friendly Sites Section ======= -->
-  <section id="testimonials" class="testimonials">
-    <div class="container" data-aos="fade-up">
-
+  <section id="freindly-site" class="freindly-site">
+    <div class="container">
       <div class="section-title">
         <h2>Friendly Sites</h2>
         <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
       </div>
 
-      <div class="clients-slider swiper-container">
-        <div class="swiper-wrapper align-items-center">
-
-          <div class="swiper-slide" *ngFor="let site of friendlySite">
-
-             <img src={{site.My_Image_Url}} class="img-fluid" alt="">
-
-          </div>
-
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-
-
-
-
-
-
-
+      <swiper
+      [slidesPerView]="5"
+      [spaceBetween]="30"
+      [effect]="'fade'"
+      [navigation]="true"
+      [pagination]="{ clickable: true }"
+      class="mySwiper"
+      >
+        <ng-template swiperSlide *ngFor="let site of friendlySite">
+          <img src={{site.My_Image_Url}} class="friendly-site-img" alt="">
+        </ng-template>
+      </swiper>
 
 
     </div>

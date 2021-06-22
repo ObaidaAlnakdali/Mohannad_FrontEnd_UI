@@ -42,7 +42,7 @@ import { SwiperModule } from 'swiper/angular';
     TestimonialsComponent,
     EducationComponent,
     ExperienceComponent,
-    ExperienceItemComponent
+    ExperienceItemComponent,
 
   ],
   imports: [

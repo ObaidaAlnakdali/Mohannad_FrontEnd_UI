@@ -276,6 +276,13 @@ const options = { headers: headers };
 return this.api.post<Result_Edit_Gallary>(this.url, JSON.stringify(i_Gallary), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Gallary;}));
 }
+Get_Gallary_item_By_GALLARY_ID(i_Params_Get_Gallary_item_By_GALLARY_ID: Params_Get_Gallary_item_By_GALLARY_ID) : Observable<Gallary_item[]> {
+this.url = this.APIBaseUrl + '/Get_Gallary_item_By_GALLARY_ID?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Gallary_item_By_GALLARY_ID>(this.url, JSON.stringify(i_Params_Get_Gallary_item_By_GALLARY_ID), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
 Get_Gallary_item_By_Where(i_Params_Get_Gallary_item_By_Where: Params_Get_Gallary_item_By_Where) : Observable<Gallary_item[]> {
 this.url = this.APIBaseUrl + '/Get_Gallary_item_By_Where?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -717,6 +724,10 @@ export class Params_Delete_Gallary
 {
 GALLARY_ID?: number;
 }
+export class Params_Get_Gallary_item_By_GALLARY_ID
+{
+GALLARY_ID?: number;
+}
 export class Params_Get_Gallary_item_By_Where
 {
 OWNER_ID?: number;
@@ -1029,6 +1040,10 @@ My_Params_Delete_Gallary : Params_Delete_Gallary;
 }
 export class Result_Edit_Gallary extends Action_Result {
 My_Gallary : Gallary;
+}
+export class Result_Get_Gallary_item_By_GALLARY_ID extends Action_Result {
+My_Result : Gallary_item[];
+My_Params_Get_Gallary_item_By_GALLARY_ID : Params_Get_Gallary_item_By_GALLARY_ID;
 }
 export class Result_Get_Gallary_item_By_Where extends Action_Result {
 My_Result : Gallary_item[];
