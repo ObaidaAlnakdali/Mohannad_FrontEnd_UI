@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { BlugerComponent } from './bluger/bluger.component';
+import { ChanceComponent } from './chance/chance.component';
 import { ContactComponent } from './contact/contact.component';
 import { DiscriptionComponent } from './discription/discription.component';
 import { GallaryComponent } from './gallary/gallary.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'discription/:GALLARY_ID', component: DiscriptionComponent },
   { path: 'bluger', component: BlugerComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'chance', component: ChanceComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: HomeComponent }
 ];

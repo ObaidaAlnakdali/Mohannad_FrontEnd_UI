@@ -395,6 +395,34 @@ const options = { headers: headers };
 return this.api.post<any>(this.url, JSON.stringify(i_Params_Delete_Friendly_sites), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);return response.ExceptionMsg;}));
 }
+Get_Chance_By_ACTIVE(i_Params_Get_Chance_By_ACTIVE: Params_Get_Chance_By_ACTIVE) : Observable<Chance[]> {
+this.url = this.APIBaseUrl + '/Get_Chance_By_ACTIVE?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Chance_By_ACTIVE>(this.url, JSON.stringify(i_Params_Get_Chance_By_ACTIVE), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Get_Chance_By_Where(i_Params_Get_Chance_By_Where: Params_Get_Chance_By_Where) : Observable<Chance[]> {
+this.url = this.APIBaseUrl + '/Get_Chance_By_Where?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Chance_By_Where>(this.url, JSON.stringify(i_Params_Get_Chance_By_Where), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Edit_Chance(i_Chance: Chance) : Observable<Chance> {
+this.url = this.APIBaseUrl + '/Edit_Chance?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Edit_Chance>(this.url, JSON.stringify(i_Chance), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Chance;}));
+}
+Delete_Chance(i_Params_Delete_Chance: Params_Delete_Chance) : Observable<string> {
+this.url = this.APIBaseUrl + '/Delete_Chance?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<any>(this.url, JSON.stringify(i_Params_Delete_Chance), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);return response.ExceptionMsg;}));
+}
 Authenticate(i_Params_Authenticate: Params_Authenticate) : Observable<User> {
 this.url = this.APIBaseUrl + '/Authenticate?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -869,6 +897,36 @@ export class Params_Delete_Friendly_sites
 {
 FRIENDLY_SITES_ID?: number;
 }
+export class Params_Get_Chance_By_ACTIVE
+{
+ACTIVE?: boolean;
+}
+export class Chance
+{
+CHANCE_ID?: number;
+TITLE: string;
+DESCRIPTION: string;
+LINK: string;
+END_DATE: string;
+ACTIVE?: boolean;
+ENTRY_USER_ID?: number;
+ENTRY_DATE: string;
+OWNER_ID?: number;
+}
+export class Params_Get_Chance_By_Where
+{
+OWNER_ID?: number;
+TITLE: string;
+DESCRIPTION: string;
+LINK: string;
+START_ROW?: number;
+END_ROW?: number;
+TOTAL_COUNT?: number;
+}
+export class Params_Delete_Chance
+{
+CHANCE_ID?: number;
+}
 export class Params_Authenticate
 {
 UserName: string;
@@ -1101,6 +1159,20 @@ My_Friendly_sites : Friendly_sites;
 }
 export class Result_Delete_Friendly_sites extends Action_Result {
 My_Params_Delete_Friendly_sites : Params_Delete_Friendly_sites;
+}
+export class Result_Get_Chance_By_ACTIVE extends Action_Result {
+My_Result : Chance[];
+My_Params_Get_Chance_By_ACTIVE : Params_Get_Chance_By_ACTIVE;
+}
+export class Result_Get_Chance_By_Where extends Action_Result {
+My_Result : Chance[];
+My_Params_Get_Chance_By_Where : Params_Get_Chance_By_Where;
+}
+export class Result_Edit_Chance extends Action_Result {
+My_Chance : Chance;
+}
+export class Result_Delete_Chance extends Action_Result {
+My_Params_Delete_Chance : Params_Delete_Chance;
 }
 export class Result_Authenticate extends Action_Result {
 My_Result : User;

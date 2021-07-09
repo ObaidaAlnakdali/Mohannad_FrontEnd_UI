@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Proxy, Socialmedia } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private proxy : Proxy,
-    private svc : InfosvcService
+    private svc : InfosvcService,
+    public translate : TranslateService
   ) {
     this.getHeaderInfo();
   }
@@ -112,6 +114,18 @@ export class HeaderComponent implements OnInit {
     this.svc.getHeaderInfo(() => {
       this.social_media = this.svc.SocialMedia;
     });
+  }
+
+  changeLang(){
+    let lang = document.getElementById("language").innerHTML;
+    // document.getElementById("language").innerHTML = (lang === "EN") ? "EN":"AR";
+    if (lang === "EN"){
+      document.getElementById("language").innerHTML="AR";
+      this.translate.use('ar');
+    }else{
+      document.getElementById("language").innerHTML="EN";
+      this.translate.use('en');
+    }
   }
 
 }

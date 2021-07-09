@@ -21,6 +21,8 @@ import {
   Params_Get_Gallary_By_ACTIVE,
   Friendly_sites,
   Params_Get_Friendly_sites_By_ACTIVE,
+  Chance,
+  Params_Get_Chance_By_ACTIVE,
 } from 'src/services/proxy.service';
 
 @Injectable()
@@ -34,6 +36,7 @@ export class InfosvcService {
   SocialMedia: Socialmedia[] = [];
   Gallary: Gallary[] = [];
   FriendlySite: Friendly_sites[] = [];
+  Chance: Chance[] = [];
   Personal: Personal;
 
   constructor(private proxy: Proxy) {}
@@ -191,4 +194,21 @@ export class InfosvcService {
   }
 
   //--------------------End--Bluger--------------------------
+
+    //--------------------Chance--------------------------
+
+    getChanceInfo(successHandler) {
+      this.Chance = [];
+      const params = new Params_Get_Chance_By_ACTIVE();
+      params.ACTIVE = true;
+      this.proxy.Get_Chance_By_ACTIVE(params).subscribe((data: Chance[]) => {
+        this.Chance = data;
+        if (successHandler) {
+          successHandler();
+        }
+      });
+    }
+
+    //--------------------End--Chance--------------------------
+
 }

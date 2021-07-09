@@ -17,12 +17,16 @@ import { TestimonialsComponent } from './about/testimonials/testimonials.compone
 import { InfosvcService } from './infosvc.service';
 import { Proxy } from 'src/services/proxy.service';
 import { CommonService } from 'src/services/common.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EducationComponent } from './resume/education/education.component';
 import { ExperienceComponent } from './resume/experience/experience.component';
 import { ExperienceItemComponent } from './resume/experience-item/experience-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from 'swiper/angular';
+import { ChanceComponent } from './chance/chance.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
 
 
 @NgModule({
@@ -43,6 +47,7 @@ import { SwiperModule } from 'swiper/angular';
     EducationComponent,
     ExperienceComponent,
     ExperienceItemComponent,
+    ChanceComponent,
 
   ],
   imports: [
@@ -52,6 +57,15 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     ReactiveFormsModule,
     SwiperModule,
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+
   ],
   providers: [
     CommonService,
@@ -62,3 +76,8 @@ import { SwiperModule } from 'swiper/angular';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+

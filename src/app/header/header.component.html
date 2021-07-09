@@ -1,9 +1,5 @@
-<!--
- <button type="button" class="mobile-nav-toggle d-lg-none" >
-   <i class="icofont-navigation-menu"></i>
- </button> -->
 
- <!-- ======= Header ======= -->
+<!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
   <div class="container-fluid d-flex justify-content-between align-items-center">
 
@@ -13,28 +9,29 @@
 
     <nav class="nav-menu d-none d-lg-block" >
       <ul>
-        <li routerLinkActive="active"><a routerLink="/home" href="home">Home</a></li>
-        <li routerLinkActive="active"><a routerLink="/about" href="about">About</a></li>
-        <li routerLinkActive="active"><a routerLink="/resume" href="resume">Resume</a></li>
-        <li routerLinkActive="active"><a routerLink="/publisher" href="publisher">Publisher</a></li>
-        <li routerLinkActive="active"><a routerLink="/gallary" href="gallary">Gallary</a></li>
-        <li routerLinkActive="active"><a routerLink="/bluger" href="bluger">Bluger</a></li>
-        <li routerLinkActive="active"><a routerLink="/contact" href="contact">Contact</a></li>
+        <li routerLinkActive="active"><a routerLink="/home" href="home">{{"HOME" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/about" href="about">{{"ABOUT" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/resume" href="resume">{{"RESUME" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/publisher" href="publisher">{{"PUBLISHER" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/gallary" href="gallary">{{"GALLARY" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/bluger" href="bluger">{{"BLUGER" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/chance" href="chance">{{"CHANCE" | translate}}</a></li>
+        <li routerLinkActive="active"><a routerLink="/contact" href="contact">{{"CONTACT" | translate}}</a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
     <div class="header-social-links">
 
-      <a *ngFor="let social of social_media"
+    <button id="language" (click)="changeLang()">EN</button>
+
+    <a *ngFor="let social of social_media"
       href={{social.URL}}
       class={{social.NAME}} target="_blank">
-       <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
-      </a>
+      <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+    </a>
 
     </div>
-
   </div>
-
 </header><!-- End Header -->
 
 

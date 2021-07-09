@@ -1,0 +1,193 @@
+:root {
+  --fristcolor: crimson;
+  --seccolore: #1692fc;
+  --fontcolor: white;
+  --positiveDegx: rotateX(180deg);
+  --positiveDegy: rotateY(180deg);
+  --negativeDegX: rotateX(-180deg);
+  --negativeDegY: rotateY(-180deg);
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.chance-items{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid;
+  padding: 50px;
+  border-radius: 125px;
+  background-color: beige;
+  transition:1s;
+  -webkit-transition:1s;
+  -moz-transition:1s;
+  -ms-transition:1s;
+  -o-transition:1s;
+}
+
+.chance-items:hover{
+  background-color: rgb(134, 230, 198);
+}
+
+.chance-items a{
+  color:#3b3b3b
+}
+
+.items-info{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+@media (min-width:900px){
+  .chance-items{
+    padding: 30px;
+  }
+}
+
+@media (max-width:750px){
+  .items-info{
+    flex-direction:column;
+    align-items: center;
+  }
+
+  .items-info span{
+    margin-bottom: 10px;
+  }
+}
+
+.chance-items h3{
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.chance-items:hover h3{
+  animation:left-to-right 3s ease-in forwards;
+  -webkit-animation:left-to-right 3s ease-in forwards;
+}
+
+@keyframes left-to-right {
+  0%{ transform:translateX(0) ; -webkit-transform:translateX(0) ; -moz-transform:translateX(0) ; -ms-transform:translateX(0) ; -o-transform:translateX(0) ; }
+  30%{ transform:translateX(30%) ; -webkit-transform:translateX(30%) ; -moz-transform:translateX(30%) ; -ms-transform:translateX(30%) ; -o-transform:translateX(30%) ; }
+  70%{ transform:translateX(-30%) ; -webkit-transform:translateX(-30%) ; -moz-transform:translateX(-30%) ; -ms-transform:translateX(-30%) ; -o-transform:translateX(-30%) ; }
+  100%{ transform:translateX(0) ; -webkit-transform:translateX(0) ; -moz-transform:translateX(0) ; -ms-transform:translateX(0) ; -o-transform:translateX(0) ; }
+}
+
+.chance-items p{
+  text-justify: distribute;
+  user-select: none;
+  text-align: revert;
+}
+
+.background-items{
+  background: #44b4a4;
+  padding: 15px;
+  border-radius: 40px;
+  width: 12em;
+  color: black;
+}
+
+.chance-items-test{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  position: relative;
+  box-shadow: inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%);
+  outline: none;
+  line-height: 42px;
+  padding: 20px;
+  border: none;
+  transition: all 0.3s ease;
+  align-items: center;
+  -webkit-transition: all 1.3s ease;
+  text-align: center;
+  background-color: beige;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 70px;
+  color: black;
+}
+
+
+.chance-items-test h2{
+  padding-top: 20px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.chance-items-test h2::before{
+  content: "";
+  border-bottom: 5px solid #0aa3827d;
+  position: absolute;
+  width: 99%;
+  top: 65px;
+}
+
+.chance-items-test h2::after{
+  content: "";
+  border-bottom: 12px solid #1b8f7b;
+  position: absolute;
+  width: 6%;
+  top: 62px;
+  border-radius: 50%;
+  left: 0;
+  animation: move-right 2s infinite linear;
+  -webkit-animation: move-right 4s infinite linear;
+}
+
+@keyframes move-right {
+  0%{ transform:translateX(200%) ; -webkit-transform:translateX(200%) ; -moz-transform:translateX(200%) ; -ms-transform:translateX(200%) ; -o-transform:translateX(200%) ; }
+  50%{ transform:translateX(1300%) ; -webkit-transform:translateX(1300%) ; -moz-transform:translateX(1300%) ; -ms-transform:translateX(1300%) ; -o-transform:translateX(1300%) ; }
+  100%{ transform:translateX(200%); -webkit-transform:translateX(200%); -moz-transform:translateX(200%); -ms-transform:translateX(200%); -o-transform:translateX(200%); }
+}
+
+.chance-items-test p{
+  line-height: 2;
+}
+
+.chance-items-test:hover{
+  color: #155a50 !important;
+  background: transparent;
+  box-shadow:none;
+  cursor: pointer;
+}
+
+.chance-items-test:before,
+.chance-items-test:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #34b7a7;
+  box-shadow:
+  -1px -1px 5px 0px #fff,
+  7px 7px 20px 0px #0003,
+  4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.chance-items-test:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.chance-items-test:hover:before,
+.chance-items-test:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+

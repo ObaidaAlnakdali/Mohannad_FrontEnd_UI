@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 declare var jQuery : any;
 declare var AOS : any;
 @Component({
@@ -9,10 +10,10 @@ declare var AOS : any;
 export class AppComponent {
   title = 'UI';
 
-  ngOnInit(): void {
+  constructor(public translate : TranslateService){}
 
+  ngOnInit(): void {}
 
-  }
   onActivate(event) {
     window.scroll(1,1);
 }
