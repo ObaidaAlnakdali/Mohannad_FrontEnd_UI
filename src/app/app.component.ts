@@ -18,4 +18,15 @@ export class AppComponent {
     window.scroll(1,1);
 }
 
+changeLang(){
+  let lang = document.getElementById("language").innerHTML;
+  if (lang === "AR"){
+    document.getElementById("language").innerHTML="EN";
+    this.translate.use('ar');
+  }else{
+    document.getElementById("language").innerHTML="AR";
+    this.translate.use('en');
+  }
+}
+
 }

@@ -4,8 +4,6 @@
   <div class="container-fluid d-flex justify-content-between align-items-center">
 
     <h1 class="logo"><a routerLink="home">Muhannad</a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
     <nav class="nav-menu d-none d-lg-block" >
       <ul>
@@ -21,16 +19,13 @@
     </nav><!-- .nav-menu -->
 
     <div class="header-social-links">
-
-    <button id="language" (click)="changeLang()">EN</button>
-
-    <a *ngFor="let social of social_media"
-      href={{social.URL}}
-      class={{social.NAME}} target="_blank">
-      <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
-    </a>
-
+      <a *ngFor="let social of social_media"
+        href={{social.URL}}
+        class={{social.NAME}} target="_blank">
+        <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+      </a>
     </div>
+
   </div>
 </header><!-- End Header -->
 

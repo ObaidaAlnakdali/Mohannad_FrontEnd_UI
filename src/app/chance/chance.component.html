@@ -10,42 +10,16 @@
       </div>
       <div class="chances">
 
-      <a href="http://www.letsspeakturkish.com/" target="_blank">
+
+      <a href={{chance.LINK}} target="_blank" *ngFor="let chance of chance">
         <div class="chance-items-test">
-            <h2>Learn Turkish</h2>
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-              Sections 1.10.32 and 1.10.33 from sado by Cicero are also reproduced in their exact original form,
-              accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            <h2>{{chance.TITLE}}</h2>
+            <p>{{chance.DESCRIPTION}}</p>
             <div class="items-info-test">
-              <span class="background-item">2021-06-29</span>
+              <span id="chance-date" class="background-item-green">{{chance.END_DATE}}</span>
             </div>
         </div>
       </a>
-
-      <a href="http://www.letsspeakturkish.com/" target="_blank">
-        <div class="chance-items-test">
-            <h2>Learn Turkish</h2>
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-              Sections 1.10.32 and 1.10.33 from sado by Cicero are also reproduced in their exact original form,
-              accompanied by English versions from the 1914 translation by H. Rackham.</p>
-            <div class="items-info-test">
-              <span class="background-item">2021-06-29</span>
-            </div>
-        </div>
-      </a>
-
-      <a href="http://www.letsspeakturkish.com/" target="_blank">
-        <div class="chance-items-test">
-            <h2>Learn Turkish</h2>
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-              Sections 1.10.32 and 1.10.33 from sado by Cicero are also reproduced in their exact original form,
-              accompanied by English versions from the 1914 translation by H. Rackham.</p>
-            <div class="items-info-test">
-              <span class="background-item">2021-06-29</span>
-            </div>
-        </div>
-      </a>
-
 
 
       </div>

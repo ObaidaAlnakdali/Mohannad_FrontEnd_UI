@@ -10,6 +10,7 @@ import { InfosvcService } from '../infosvc.service';
 export class ChanceComponent implements OnInit {
   chance: Chance[];
   personal : Personal;
+  i=0;
 
   constructor(private svc : InfosvcService) {
     this.getChanceInfo();
@@ -17,6 +18,21 @@ export class ChanceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      var navElements = document.querySelectorAll('.chances span');
+
+      navElements.forEach(function(x) {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        let todays =  Date.parse(yyyy + '-' + mm + '-' + dd);
+        let date = Date.parse(x.textContent)
+        if(date < todays){
+          x.classList.toggle("background-item-red");
+        }
+      })
+    }, 3000);
 
   }
 

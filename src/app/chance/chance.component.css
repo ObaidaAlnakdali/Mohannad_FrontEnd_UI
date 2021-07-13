@@ -111,13 +111,12 @@
   align-items: center;
   -webkit-transition: all 1.3s ease;
   text-align: center;
-  background-color: beige;
+  background-color: #e9e8e6;
   cursor: pointer;
   user-select: none;
   margin-bottom: 70px;
   color: black;
 }
-
 
 .chance-items-test h2{
   padding-top: 20px;
@@ -178,16 +177,79 @@
   4px 4px 5px 0px #0002;
   transition:400ms ease all;
 }
+
 .chance-items-test:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
+
 .chance-items-test:hover:before,
 .chance-items-test:hover:after{
   width:100%;
   transition:800ms ease all;
+}
+
+.items-info-test span{
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  padding: 5px;
+  color: white;
+  z-index: 1;
+}
+
+.items-info-test span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -19px;
+  height: 100%;
+  width: 10%;
+  background-color: #413f3f;
+  z-index: -1;
+  border-radius: 5px;
+  transition: 1s;
+  -webkit-transition: 1s;
+}
+
+.items-info-test .background-item-green::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #137a0f;
+  z-index: -1;
+  border-radius: 5px;
+  transition: 1s;
+  -webkit-transition: 1s;
+}
+
+.chance-items-test:hover .items-info-test .background-item-green::after{
+  background-color: #175714;
+}
+
+.items-info-test .background-item-red::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #d01616b5;
+  z-index: -1;
+  border-radius: 5px;
+  transition: 1s;
+  -webkit-transition: 1s;
+}
+
+.chance-items-test:hover .items-info-test .background-item-red::after{
+  background-color: #8f0d0d;
 }
 
 

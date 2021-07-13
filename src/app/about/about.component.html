@@ -118,18 +118,10 @@
         <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
       </div>
 
-      <swiper
-      [slidesPerView]="5"
-      [spaceBetween]="30"
-      [effect]="'fade'"
-      [navigation]="true"
-      [pagination]="{ clickable: true }"
-      class="mySwiper"
-      >
-        <ng-template swiperSlide *ngFor="let site of friendlySite">
-          <img src={{site.My_Image_Url}} class="friendly-site-img" alt="">
-        </ng-template>
-      </swiper>
+
+      <div class="freindly-site-items">
+          <img  *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
+      </div>
 
 
     </div>
