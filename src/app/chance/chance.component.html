@@ -5,22 +5,29 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Chance</h2>
+        <h2>Chances</h2>
         <p>{{personal.BLUGER_DESCRIPTION}}</p>
       </div>
       <div class="chances">
 
+      <div class="Popular-chances">
+        <h3>Popular Chances</h3>
+        <ul>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE}}</a></li>
+        </ul>
+      </div>
 
-      <a href={{chance.LINK}} target="_blank" *ngFor="let chance of chance">
-        <div class="chance-items-test">
-            <h2>{{chance.TITLE}}</h2>
-            <p>{{chance.DESCRIPTION}}</p>
-            <div class="items-info-test">
-              <span id="chance-date" class="background-item-green">{{chance.END_DATE}}</span>
-            </div>
-        </div>
-      </a>
-
+      <div class="chances-items">
+        <a href={{chance.LINK}} target="_blank" *ngFor="let chance of chances">
+          <div class="chance-items-test">
+              <h3>{{chance.TITLE}}</h3>
+              <p>{{chance.DESCRIPTION}}</p>
+              <div class="items-info-test">
+                <span id="chance-date" class="background-item-green">{{chance.END_DATE}}</span>
+              </div>
+          </div>
+        </a>
+      </div>
 
       </div>
     </div>

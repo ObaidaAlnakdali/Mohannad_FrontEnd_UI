@@ -26,6 +26,7 @@ import { SwiperModule } from 'swiper/angular';
 import { ChanceComponent } from './chance/chance.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { ChanceItemComponent } from './chance-item/chance-item.component';
 
 
 
@@ -48,6 +49,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     ExperienceComponent,
     ExperienceItemComponent,
     ChanceComponent,
+    ChanceItemComponent,
 
   ],
   imports: [

@@ -5,16 +5,16 @@
 
     <h1 class="logo"><a routerLink="home">Muhannad</a></h1>
 
-    <nav class="nav-menu d-none d-lg-block" >
+    <nav class="nav-menu d-none d-lg-block navbar" >
       <ul>
-        <li routerLinkActive="active"><a routerLink="/home" href="home">{{"HOME" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/about" href="about">{{"ABOUT" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/resume" href="resume">{{"RESUME" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/publisher" href="publisher">{{"PUBLISHER" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/gallary" href="gallary">{{"GALLARY" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/bluger" href="bluger">{{"BLUGER" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/chance" href="chance">{{"CHANCE" | translate}}</a></li>
-        <li routerLinkActive="active"><a routerLink="/contact" href="contact">{{"CONTACT" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/home">{{"HOME" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/about">{{"ABOUT" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/resume">{{"RESUME" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/publisher">{{"PUBLISHER" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/gallary">{{"GALLARY" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/bluger">{{"BLUGER" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/chance">{{"CHANCE" | translate}}</a></li>
+        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/contact">{{"CONTACT" | translate}}</a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -26,8 +26,23 @@
       </a>
     </div>
 
+    <button class="menu-toggler" (click)="navMabOpen()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header><!-- End Header -->
+
+<div class="div-nave d-none">
+  <button type="button" class="nav-toggle " (click)="navMabClose()"><i class="icofont-close"></i></button>
+  <nav id="nav-mob" class="nav-mob "></nav>
+  <div class="nav-overly" style="display: block;"></div>
+</div>
+
+
+
+
 
 
 

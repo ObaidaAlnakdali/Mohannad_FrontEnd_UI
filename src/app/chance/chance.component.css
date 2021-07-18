@@ -13,41 +13,99 @@
   padding-bottom: 50px;
 }
 
-.chance-items{
-  position: relative;
+.chances{
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  margin: 20px;
-  border: 1px solid;
-  padding: 50px;
-  border-radius: 125px;
-  background-color: beige;
-  transition:1s;
-  -webkit-transition:1s;
-  -moz-transition:1s;
-  -ms-transition:1s;
-  -o-transition:1s;
+  justify-content: space-between;
+  position: relative;
 }
 
-.chance-items:hover{
-  background-color: rgb(134, 230, 198);
+.Popular-chances{
+  width: 30%;
+  max-height: 400px;
+  margin-right: 45px;
 }
 
-.chance-items a{
-  color:#3b3b3b
+@media (max-width:1000px){
+  .chances{
+    justify-content: center;
+  }
+  .Popular-chances{
+    display:none;
+  }
+  .chance-items-test{
+    margin: 0 10px 50px 10px!important;
+  }
+}
+
+@media (max-width:750px){
+  .chances-items{
+    flex-wrap: wrap;
+  }
+}
+
+.Popular-chances h3{
+  padding: 20px 20px;
+  box-shadow: inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%);
+}
+
+.Popular-chances ul{
+  list-style: none;
+  height: 75%;
+  margin-top: 20px;
+  overflow-y: scroll;
+  padding: 0;
+  margin-right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1b8f7cb4;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1b8f7b;
+}
+
+.Popular-chances ul li{
+  margin-left: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+.Popular-chances ul li:hover{
+  background-color: #f4f0f0;
+  padding-left: 30px;
+}
+
+
+.chances-items{
+  display: flex;
+  width: 70%;
+  justify-content:center;
 }
 
 .items-info{
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-}
-@media (min-width:900px){
-  .chance-items{
-    padding: 30px;
-  }
 }
 
 @media (max-width:750px){
@@ -59,37 +117,6 @@
   .items-info span{
     margin-bottom: 10px;
   }
-}
-
-.chance-items h3{
-  margin-bottom: 20px;
-  user-select: none;
-}
-
-.chance-items:hover h3{
-  animation:left-to-right 3s ease-in forwards;
-  -webkit-animation:left-to-right 3s ease-in forwards;
-}
-
-@keyframes left-to-right {
-  0%{ transform:translateX(0) ; -webkit-transform:translateX(0) ; -moz-transform:translateX(0) ; -ms-transform:translateX(0) ; -o-transform:translateX(0) ; }
-  30%{ transform:translateX(30%) ; -webkit-transform:translateX(30%) ; -moz-transform:translateX(30%) ; -ms-transform:translateX(30%) ; -o-transform:translateX(30%) ; }
-  70%{ transform:translateX(-30%) ; -webkit-transform:translateX(-30%) ; -moz-transform:translateX(-30%) ; -ms-transform:translateX(-30%) ; -o-transform:translateX(-30%) ; }
-  100%{ transform:translateX(0) ; -webkit-transform:translateX(0) ; -moz-transform:translateX(0) ; -ms-transform:translateX(0) ; -o-transform:translateX(0) ; }
-}
-
-.chance-items p{
-  text-justify: distribute;
-  user-select: none;
-  text-align: revert;
-}
-
-.background-items{
-  background: #44b4a4;
-  padding: 15px;
-  border-radius: 40px;
-  width: 12em;
-  color: black;
 }
 
 .chance-items-test{
@@ -115,25 +142,26 @@
   cursor: pointer;
   user-select: none;
   margin-bottom: 70px;
+  margin-left: 30px;
   color: black;
 }
 
-.chance-items-test h2{
+.chance-items-test h3{
   padding-top: 20px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   position: relative;
   margin-bottom: 30px;
 }
 
-.chance-items-test h2::before{
+.chance-items-test h3::before{
   content: "";
   border-bottom: 5px solid #0aa3827d;
   position: absolute;
-  width: 99%;
+  width: 100%;
   top: 65px;
 }
 
-.chance-items-test h2::after{
+.chance-items-test h3::after{
   content: "";
   border-bottom: 12px solid #1b8f7b;
   position: absolute;
@@ -152,7 +180,13 @@
 }
 
 .chance-items-test p{
-  line-height: 2;
+  text-align: justify;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 300px;
 }
 
 .chance-items-test:hover{
@@ -219,8 +253,6 @@
 .items-info-test .background-item-green::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0px;
   height: 100%;
   width: 100%;
   background-color: #137a0f;
@@ -237,8 +269,6 @@
 .items-info-test .background-item-red::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0px;
   height: 100%;
   width: 100%;
   background-color: #d01616b5;

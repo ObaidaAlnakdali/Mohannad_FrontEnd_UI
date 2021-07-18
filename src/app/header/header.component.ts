@@ -33,4 +33,23 @@ export class HeaderComponent implements OnInit {
       this.social_media = this.svc.SocialMedia;
     });
   }
+
+  navMabOpen(){
+    let navMobile = document.querySelector(".nav-mob");
+    let divMob = document.querySelector(".div-nave");
+    let navLinks = document.querySelector(".nav-menu ul");
+    divMob.classList.remove("d-none");
+    divMob.classList.add("d-block");
+    navMobile.appendChild(navLinks);
+  }
+
+  navMabClose(){
+    let divMob = document.querySelector(".div-nave");
+    let navLinksitem = document.querySelector(".nav-mob ul");
+    let navLinks = document.querySelector(".nav-menu");
+    divMob.classList.add("d-none");
+    divMob.classList.remove("d-block");
+    navLinks.appendChild(navLinksitem);
+  }
+
 }

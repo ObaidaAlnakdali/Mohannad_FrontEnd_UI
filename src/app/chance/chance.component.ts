@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Chance, Personal } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
@@ -8,39 +8,56 @@ import { InfosvcService } from '../infosvc.service';
   styleUrls: ['./chance.component.css']
 })
 export class ChanceComponent implements OnInit {
-  chance: Chance[];
+  chances: Chance[];
+  chancesActive : Chance[];
   personal : Personal;
-  i=0;
+  @Input() date : Date = new Date();
+  dd = String(this.date.getDate()).padStart(2, '0');
+  mm = String(this.date.getMonth() + 1).padStart(2, '0');
+  yyyy = this.date.getFullYear();
+  dateNow =  this.yyyy + '-' + this.mm + '-' + this.dd;
 
   constructor(private svc : InfosvcService) {
+
+    setTimeout(() => {
+      this.chances.forEach(element => {
+        if (element.END_DATE > this.dateNow){
+          this.chancesActive.push(element);
+        }
+      });
+    }, 2000);
+
     this.getChanceInfo();
     this.getGeneralInfo();
   }
 
   ngOnInit(): void {
+    this.activeDateChance();
+  }
+
+  getChanceInfo() {
+    this.svc.getChanceInfo(() => {
+      this.chances = this.svc.Chance;
+      console.log(this.chances.sort(this.byBirthday));
+    });
+  }
+
+  activeDateChance(){
     setTimeout(() => {
       var navElements = document.querySelectorAll('.chances span');
-
       navElements.forEach(function(x) {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = today.getFullYear();
         let todays =  Date.parse(yyyy + '-' + mm + '-' + dd);
-        let date = Date.parse(x.textContent)
+        let date = Date.parse(x.textContent);
         if(date < todays){
           x.classList.toggle("background-item-red");
         }
       })
-    }, 3000);
+    }, 2000);
 
-  }
-
-  getChanceInfo() {
-    this.svc.getChanceInfo(() => {
-      this.chance = this.svc.Chance;
-      console.log(this.chance.sort(this.byBirthday));
-    });
   }
 
   getGeneralInfo() {
