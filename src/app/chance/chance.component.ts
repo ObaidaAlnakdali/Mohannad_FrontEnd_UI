@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Chance, Personal } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
@@ -8,25 +9,13 @@ import { InfosvcService } from '../infosvc.service';
   styleUrls: ['./chance.component.css']
 })
 export class ChanceComponent implements OnInit {
-  chances: Chance[];
+  chances : Chance[];
   chancesActive : Chance[];
   personal : Personal;
-  @Input() date : Date = new Date();
-  dd = String(this.date.getDate()).padStart(2, '0');
-  mm = String(this.date.getMonth() + 1).padStart(2, '0');
-  yyyy = this.date.getFullYear();
-  dateNow =  this.yyyy + '-' + this.mm + '-' + this.dd;
+  lang : string;
 
-  constructor(private svc : InfosvcService) {
-
-    setTimeout(() => {
-      this.chances.forEach(element => {
-        if (element.END_DATE > this.dateNow){
-          this.chancesActive.push(element);
-        }
-      });
-    }, 2000);
-
+  constructor(private svc : InfosvcService, public translate : TranslateService) {
+    this.lang=localStorage.getItem("lang") || 'en';
     this.getChanceInfo();
     this.getGeneralInfo();
   }
@@ -39,6 +28,8 @@ export class ChanceComponent implements OnInit {
     this.svc.getChanceInfo(() => {
       this.chances = this.svc.Chance;
       console.log(this.chances.sort(this.byBirthday));
+      this.chancesActive = this.svc.ChanceActive;
+      console.log(this.chancesActive);
     });
   }
 

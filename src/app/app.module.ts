@@ -27,6 +27,10 @@ import { ChanceComponent } from './chance/chance.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ChanceItemComponent } from './chance-item/chance-item.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BlugerContentComponent } from './bluger-content/bluger-content.component';
+import { BlugerTitlesComponent } from './bluger-titles/bluger-titles.component';
+import { BlugerCategoryComponent } from './bluger-category/bluger-category.component';
 
 
 
@@ -50,6 +54,9 @@ import { ChanceItemComponent } from './chance-item/chance-item.component';
     ExperienceItemComponent,
     ChanceComponent,
     ChanceItemComponent,
+    BlugerContentComponent,
+    BlugerTitlesComponent,
+    BlugerCategoryComponent,
 
   ],
   imports: [
@@ -59,6 +66,7 @@ import { ChanceItemComponent } from './chance-item/chance-item.component';
     FormsModule,
     ReactiveFormsModule,
     SwiperModule,
+    ModalModule.forRoot(),
     TranslateModule.forRoot({
       defaultLanguage:'en',
       loader: {

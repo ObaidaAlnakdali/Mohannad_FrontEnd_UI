@@ -2,3 +2,11 @@
 *::selection{
   background: #5ef3ca57;
 }
+
+.services .icon-box {
+  padding: 70px 20px 10px 20px !important;
+}
+
+.modal.show .modal-dialog {
+  top: 25% !important;
+}

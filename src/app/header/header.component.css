@@ -33,7 +33,7 @@
 .nav-mob{
   background-color: #fff;
   z-index: 9999;
-  position: absolute;
+  position: fixed;
   border-radius: 20px;
   left: 15px;
   top: 60px;

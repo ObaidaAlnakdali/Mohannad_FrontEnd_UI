@@ -1,5 +1,6 @@
 
 <app-header></app-header>
 <router-outlet (activate)="onActivate($event)"></router-outlet>
-<button id="language" (click)="changeLang()" class="choose-lang">AR</button>
+<button id="language" (click)="changeLang()" *ngIf="lang === 'ar'" class="choose-lang">EN</button>
+<button id="language" (click)="changeLang()" *ngIf="lang === 'en'" class="choose-lang">AR</button>
 <app-footer></app-footer>

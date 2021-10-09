@@ -1,0 +1,20 @@
+@font-face {
+  font-family: AlmariaBold;
+  src: local("AlmariaBold"), url(../../fonts/Arabic/Almarai/Almarai-Bold.ttf) format("opentype");
+}
+@font-face {
+  font-family: AlmariaExtraBold;
+  src: local("AlmariaExtraBold"),url(../../fonts/Arabic/Almarai/Almarai-ExtraBold.ttf) format("opentype");
+}
+@font-face {
+  font-family: AlmariaLight;
+  src: local("AlmariaLight"),url(../../fonts/Arabic/Almarai/Almarai-Light.ttf) format("opentype");
+}
+@font-face {
+  font-family: AlmariaRegular;
+  src: local("AlmariaRegular"),url(../../fonts/Arabic/Almarai/Almarai-Regular.ttf) format("opentype");
+}
+
+body{
+  font-family: 'AlmariaBold';
+}

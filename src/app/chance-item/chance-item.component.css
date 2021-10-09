@@ -1,0 +1,78 @@
+.chance_items{
+  margin: 30px;
+  text-align:center;
+}
+
+.chance_items h1{
+  padding: 20px 0px;
+}
+
+.items{
+  display:flex;
+  flex-direction: row-reverse;
+  margin: 0px 50px;
+}
+
+.items-desc{
+  padding: 20px;
+  text-align: justify;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.items-desc p{
+  direction: rtl;
+  line-height: 30px;
+}
+
+.items-info{
+  padding: 20px;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.items-info p{
+  padding: 0px 20px;
+  display: flex;
+  justify-content: end;
+  margin: 0px 0px 40px 0px;
+  direction: rtl;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
+}
+
+.items-info p:hover{
+  margin-right: 20px;
+}
+
+.items-info p span{
+  font-weight: none;
+}
+
+.section-title{
+  padding-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .items{
+    flex-direction: column;
+    align-items: center;
+  }
+  .col-md-6 {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .col-md-6 {
+    max-width: 70% !important;
+  }
+}
+
+

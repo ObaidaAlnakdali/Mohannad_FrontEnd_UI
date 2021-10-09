@@ -3,6 +3,7 @@ import {
   Friendly_sites,
   Personal,
   Skills,
+  Socialmedia,
   Testimonials,
 } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
@@ -18,6 +19,7 @@ declare var jQuery: any;
 export class AboutComponent implements OnInit {
   skills: Skills[];
   testimonials: Testimonials[];
+  social_media: Socialmedia[];
   friendlySite: Friendly_sites[];
   personal: Personal;
   mySwiper: Swiper;
@@ -25,22 +27,25 @@ export class AboutComponent implements OnInit {
   constructor(private svc: InfosvcService) {
     this.getGeneralInfo();
     this.getAboutInfo();
+    this.getsocialMediaInfo();
   }
 
   ngOnInit(): void {
-
     this.JQuery();
   }
 
-  getAboutInfo()
+  getsocialMediaInfo() {
+    this.svc.getHeaderInfo(() => {
+      this.social_media = this.svc.SocialMedia;
+    });
+  }
 
-  {
+  getAboutInfo() {
     this.svc.getAboutInfo(() => {
       this.skills = this.svc.Skills;
       this.testimonials = this.svc.testimonials;
       this.friendlySite = this.svc.FriendlySite;
     });
-
   }
 
   getGeneralInfo() {

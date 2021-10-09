@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import {
   Bluger,
+  Bluger_category,
   Educations,
   Experience,
   Params_Get_Bluger_By_ACTIVE,
+  Params_Get_Bluger_category_By_ACTIVE,
   Params_Get_Educations_By_ACTIVE,
   Params_Get_Experience_By_ACTIVE,
   Params_Get_Publisher_By_ACTIVE,
@@ -32,12 +34,19 @@ export class InfosvcService {
   Educations: Educations[] = [];
   Experience: Experience[] = [];
   Bluger: Bluger[] = [];
+  BlugerCategory: Bluger_category[] = [];
   Publisher: Publisher[] = [];
   SocialMedia: Socialmedia[] = [];
   Gallary: Gallary[] = [];
   FriendlySite: Friendly_sites[] = [];
   Chance: Chance[] = [];
+  ChanceActive: Chance[] = [];
+  date : Date = new Date();
   Personal: Personal;
+  dd = String(this.date.getDate()).padStart(2, '0');
+  mm = String(this.date.getMonth() + 1).padStart(2, '0');
+  yyyy = this.date.getFullYear();
+  dateNow =  this.yyyy + '-' + this.mm + '-' + this.dd;
 
   constructor(private proxy: Proxy) {}
 
@@ -195,20 +204,42 @@ export class InfosvcService {
 
   //--------------------End--Bluger--------------------------
 
-    //--------------------Chance--------------------------
+    //--------------------Bluger_category--------------------------
 
-    getChanceInfo(successHandler) {
-      this.Chance = [];
-      const params = new Params_Get_Chance_By_ACTIVE();
+    getBlugerCategoryInfo(successHandler) {
+      this.BlugerCategory = [];
+      const params = new Params_Get_Bluger_category_By_ACTIVE();
       params.ACTIVE = true;
-      this.proxy.Get_Chance_By_ACTIVE(params).subscribe((data: Chance[]) => {
-        this.Chance = data;
+      this.proxy.Get_Bluger_category_By_ACTIVE(params).subscribe((data: Bluger_category[]) => {
+        this.BlugerCategory = data;
         if (successHandler) {
           successHandler();
         }
       });
     }
 
-    //--------------------End--Chance--------------------------
+    //--------------------End--Bluger--------------------------
+
+  //--------------------Chance--------------------------
+
+    getChanceInfo(successHandler) {
+      this.Chance = [];
+      this.ChanceActive = [];
+      const params = new Params_Get_Chance_By_ACTIVE();
+      params.ACTIVE = true;
+      this.proxy.Get_Chance_By_ACTIVE(params).subscribe((data: Chance[]) => {
+        this.Chance = data;
+        data.forEach(element => {
+          if (element.END_DATE > this.dateNow){
+            this.ChanceActive.push(element);
+          }
+        });
+        if (successHandler) {
+          successHandler();
+        }
+      });
+    }
+
+  //--------------------End--Chance--------------------------
 
 }

@@ -206,6 +206,41 @@ const options = { headers: headers };
 return this.api.post<Result_Edit_Bluger>(this.url, JSON.stringify(i_Bluger), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Bluger;}));
 }
+Get_Bluger_category_By_ACTIVE(i_Params_Get_Bluger_category_By_ACTIVE: Params_Get_Bluger_category_By_ACTIVE) : Observable<Bluger_category[]> {
+this.url = this.APIBaseUrl + '/Get_Bluger_category_By_ACTIVE?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Bluger_category_By_ACTIVE>(this.url, JSON.stringify(i_Params_Get_Bluger_category_By_ACTIVE), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Get_Bluger_category_By_OWNER_ID(i_Params_Get_Bluger_category_By_OWNER_ID: Params_Get_Bluger_category_By_OWNER_ID) : Observable<Bluger_category[]> {
+this.url = this.APIBaseUrl + '/Get_Bluger_category_By_OWNER_ID?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Bluger_category_By_OWNER_ID>(this.url, JSON.stringify(i_Params_Get_Bluger_category_By_OWNER_ID), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Get_Bluger_category_By_Where(i_Params_Get_Bluger_category_By_Where: Params_Get_Bluger_category_By_Where) : Observable<Bluger_category[]> {
+this.url = this.APIBaseUrl + '/Get_Bluger_category_By_Where?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Bluger_category_By_Where>(this.url, JSON.stringify(i_Params_Get_Bluger_category_By_Where), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Delete_Bluger_category(i_Params_Delete_Bluger_category: Params_Delete_Bluger_category) : Observable<string> {
+this.url = this.APIBaseUrl + '/Delete_Bluger_category?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<any>(this.url, JSON.stringify(i_Params_Delete_Bluger_category), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);return response.ExceptionMsg;}));
+}
+Edit_Bluger_category(i_Bluger_category: Bluger_category) : Observable<Bluger_category> {
+this.url = this.APIBaseUrl + '/Edit_Bluger_category?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Edit_Bluger_category>(this.url, JSON.stringify(i_Bluger_category), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Bluger_category;}));
+}
 Get_Publisher_By_ACTIVE(i_Params_Get_Publisher_By_ACTIVE: Params_Get_Publisher_By_ACTIVE) : Observable<Publisher[]> {
 this.url = this.APIBaseUrl + '/Get_Publisher_By_ACTIVE?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -423,6 +458,20 @@ const options = { headers: headers };
 return this.api.post<any>(this.url, JSON.stringify(i_Params_Delete_Chance), options)
 .pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg);return response.ExceptionMsg;}));
 }
+Get_Reqwest_publishers_By_Where(i_Params_Get_Reqwest_publishers_By_Where: Params_Get_Reqwest_publishers_By_Where) : Observable<Reqwest_publishers[]> {
+this.url = this.APIBaseUrl + '/Get_Reqwest_publishers_By_Where?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Get_Reqwest_publishers_By_Where>(this.url, JSON.stringify(i_Params_Get_Reqwest_publishers_By_Where), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Result;}));
+}
+Edit_Reqwest_publishers(i_Reqwest_publishers: Reqwest_publishers) : Observable<Reqwest_publishers> {
+this.url = this.APIBaseUrl + '/Edit_Reqwest_publishers?Ticket=' + this.common.ticket;
+const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
+const options = { headers: headers };
+return this.api.post<Result_Edit_Reqwest_publishers>(this.url, JSON.stringify(i_Reqwest_publishers), options)
+.pipe(map(response => { this.common.Handle_Exception(response.ExceptionMsg); return response.My_Reqwest_publishers;}));
+}
 Authenticate(i_Params_Authenticate: Params_Authenticate) : Observable<User> {
 this.url = this.APIBaseUrl + '/Authenticate?Ticket=' + this.common.ticket;
 const headers = new HttpHeaders({ 'Content-Type': 'application/json','ticket': this.common.ticket });
@@ -499,6 +548,7 @@ TESTIMONIALS_ID?: number;
 NAME: string;
 TITLE: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -530,6 +580,7 @@ OWNER_ID?: number;
 NAME: string;
 TITLE: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -546,9 +597,12 @@ export class Educations
 {
 EDUCATIONS_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 FROM_TO_D: string;
 NAME: string;
+NAME_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -562,9 +616,12 @@ export class Params_Get_Educations_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 FROM_TO_D: string;
 NAME: string;
+NAME_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -581,8 +638,10 @@ export class Experience
 {
 EXPERIENCE_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 FROM_TO_Y: string;
 ADDRESS: string;
+ADDRESS_AR: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -593,6 +652,7 @@ export class Experience_item
 {
 EXPERIENCE_ITEM_ID?: number;
 ITEM: string;
+ITEM_AR: string;
 EXPERIENCE_ID?: number;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -607,8 +667,10 @@ export class Params_Get_Experience_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 FROM_TO_Y: string;
 ADDRESS: string;
+ADDRESS_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -621,6 +683,7 @@ export class Params_Get_Experience_item_By_Where
 {
 OWNER_ID?: number;
 ITEM: string;
+ITEM_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -640,6 +703,21 @@ TITLE: string;
 PUBLISH_OF_DATE: string;
 DESCRIPTION: string;
 URL: string;
+EN?: boolean;
+ACTIVE?: boolean;
+BLUGER_CATEGORY_ID?: number;
+ENTRY_USER_ID?: number;
+ENTRY_DATE: string;
+OWNER_ID?: number;
+My_Bluger_category: Bluger_category;
+My_Image_Url: string;
+My_Uploaded_files: Uploaded_file[];
+}
+export class Bluger_category
+{
+BLUGER_CATEGORY_ID?: number;
+TITLE: string;
+SUB_TITLE: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -666,6 +744,27 @@ export class Params_Delete_Bluger
 {
 BLUGER_ID?: number;
 }
+export class Params_Get_Bluger_category_By_ACTIVE
+{
+ACTIVE?: boolean;
+}
+export class Params_Get_Bluger_category_By_OWNER_ID
+{
+OWNER_ID?: number;
+}
+export class Params_Get_Bluger_category_By_Where
+{
+OWNER_ID?: number;
+TITLE: string;
+SUB_TITLE: string;
+START_ROW?: number;
+END_ROW?: number;
+TOTAL_COUNT?: number;
+}
+export class Params_Delete_Bluger_category
+{
+BLUGER_CATEGORY_ID?: number;
+}
 export class Params_Get_Publisher_By_ACTIVE
 {
 ACTIVE?: boolean;
@@ -674,7 +773,9 @@ export class Publisher
 {
 PUBLISHER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 URL: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
@@ -691,7 +792,9 @@ export class Params_Get_Publisher_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 URL: string;
 START_ROW?: number;
 END_ROW?: number;
@@ -709,7 +812,9 @@ export class Gallary
 {
 GALLARY_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 ACTIVE?: boolean;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -722,11 +827,15 @@ export class Gallary_item
 {
 GALLARY_ITEM_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 NAME: string;
+NAME_AR: string;
 CATEGORY: string;
+CATEGORY_AR: string;
 PROJECTDATE: string;
 PROJECTURL: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 GALLARY_ID?: number;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
@@ -743,7 +852,9 @@ export class Params_Get_Gallary_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -760,11 +871,15 @@ export class Params_Get_Gallary_item_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 NAME: string;
+NAME_AR: string;
 CATEGORY: string;
+CATEGORY_AR: string;
 PROJECTDATE: string;
 PROJECTURL: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -812,26 +927,43 @@ export class Personal
 {
 PERSONAL_ID?: number;
 NAME: string;
+NAME_AR: string;
 PHONE: string;
 EMAIL: string;
 WEBSITE: string;
 DEGREE: string;
+DEGREE_AR: string;
 ADDRESS: string;
 HOME_DESCRIPTION: string;
+HOME_DESCRIPTION_AR: string;
 ABOUT_DESCRIPTION: string;
+ABOUT_DESCRIPTION_AR: string;
 SKILLS_DESCRIPTION: string;
+SKILLS_DESCRIPTION_AR: string;
 FACTS_DESCRIPTION: string;
+FACTS_DESCRIPTION_AR: string;
 TESTIMONTION_DESCRIPTION: string;
+TESTIMONTION_DESCRIPTION_AR: string;
 JOB_TITLE: string;
+JOB_TITLE_AR: string;
 JOB_DESCRIPTION: string;
+JOB_DESCRIPTION_AR: string;
 ABOUT_SUMARY: string;
+ABOUT_SUMARY_AR: string;
 RESUME_DESCRIPTION: string;
+RESUME_DESCRIPTION_AR: string;
 RESUME_SUMARY: string;
+RESUME_SUMARY_AR: string;
 PUBLISHER_DESCRIPTION: string;
+PUBLISHER_DESCRIPTION_AR: string;
 GALLARY_DESCRIPTION: string;
+GALLARY_DESCRIPTION_AR: string;
 BLUGER_DESCRIPTION: string;
+BLUGER_DESCRIPTION_AR: string;
 CONTACT_DESCRIPTION: string;
+CONTACT_DESCRIPTION_AR: string;
 CONTACT_LOCATION: string;
+CONTACT_LOCATION_AR: string;
 ENTRY_USER_ID?: number;
 ENTRY_DATE: string;
 OWNER_ID?: number;
@@ -844,26 +976,43 @@ export class Params_Get_Personal_By_Where
 {
 OWNER_ID?: number;
 NAME: string;
+NAME_AR: string;
 PHONE: string;
 EMAIL: string;
 WEBSITE: string;
 DEGREE: string;
+DEGREE_AR: string;
 ADDRESS: string;
 HOME_DESCRIPTION: string;
+HOME_DESCRIPTION_AR: string;
 ABOUT_DESCRIPTION: string;
+ABOUT_DESCRIPTION_AR: string;
 SKILLS_DESCRIPTION: string;
+SKILLS_DESCRIPTION_AR: string;
 FACTS_DESCRIPTION: string;
+FACTS_DESCRIPTION_AR: string;
 TESTIMONTION_DESCRIPTION: string;
+TESTIMONTION_DESCRIPTION_AR: string;
 JOB_TITLE: string;
+JOB_TITLE_AR: string;
 JOB_DESCRIPTION: string;
+JOB_DESCRIPTION_AR: string;
 ABOUT_SUMARY: string;
+ABOUT_SUMARY_AR: string;
 RESUME_DESCRIPTION: string;
+RESUME_DESCRIPTION_AR: string;
 RESUME_SUMARY: string;
+RESUME_SUMARY_AR: string;
 PUBLISHER_DESCRIPTION: string;
+PUBLISHER_DESCRIPTION_AR: string;
 GALLARY_DESCRIPTION: string;
+GALLARY_DESCRIPTION_AR: string;
 BLUGER_DESCRIPTION: string;
+BLUGER_DESCRIPTION_AR: string;
 CONTACT_DESCRIPTION: string;
+CONTACT_DESCRIPTION_AR: string;
 CONTACT_LOCATION: string;
+CONTACT_LOCATION_AR: string;
 START_ROW?: number;
 END_ROW?: number;
 TOTAL_COUNT?: number;
@@ -905,7 +1054,11 @@ export class Chance
 {
 CHANCE_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
+CHANCE_LANG: string;
+TYPE: string;
 LINK: string;
 END_DATE: string;
 ACTIVE?: boolean;
@@ -917,7 +1070,11 @@ export class Params_Get_Chance_By_Where
 {
 OWNER_ID?: number;
 TITLE: string;
+TITLE_AR: string;
 DESCRIPTION: string;
+DESCRIPTION_AR: string;
+CHANCE_LANG: string;
+TYPE: string;
 LINK: string;
 START_ROW?: number;
 END_ROW?: number;
@@ -926,6 +1083,26 @@ TOTAL_COUNT?: number;
 export class Params_Delete_Chance
 {
 CHANCE_ID?: number;
+}
+export class Params_Get_Reqwest_publishers_By_Where
+{
+OWNER_ID?: number;
+NAME: string;
+EMAIL: string;
+START_ROW?: number;
+END_ROW?: number;
+TOTAL_COUNT?: number;
+}
+export class Reqwest_publishers
+{
+REQWEST_PUBLISHERS_ID?: number;
+NAME: string;
+EMAIL: string;
+PUBLISHER_ID?: number;
+ENTRY_USER_ID?: number;
+ENTRY_DATE: string;
+OWNER_ID?: number;
+My_Publisher: Publisher;
 }
 export class Params_Authenticate
 {
@@ -1063,6 +1240,24 @@ My_Params_Delete_Bluger : Params_Delete_Bluger;
 export class Result_Edit_Bluger extends Action_Result {
 My_Bluger : Bluger;
 }
+export class Result_Get_Bluger_category_By_ACTIVE extends Action_Result {
+My_Result : Bluger_category[];
+My_Params_Get_Bluger_category_By_ACTIVE : Params_Get_Bluger_category_By_ACTIVE;
+}
+export class Result_Get_Bluger_category_By_OWNER_ID extends Action_Result {
+My_Result : Bluger_category[];
+My_Params_Get_Bluger_category_By_OWNER_ID : Params_Get_Bluger_category_By_OWNER_ID;
+}
+export class Result_Get_Bluger_category_By_Where extends Action_Result {
+My_Result : Bluger_category[];
+My_Params_Get_Bluger_category_By_Where : Params_Get_Bluger_category_By_Where;
+}
+export class Result_Delete_Bluger_category extends Action_Result {
+My_Params_Delete_Bluger_category : Params_Delete_Bluger_category;
+}
+export class Result_Edit_Bluger_category extends Action_Result {
+My_Bluger_category : Bluger_category;
+}
 export class Result_Get_Publisher_By_ACTIVE extends Action_Result {
 My_Result : Publisher[];
 My_Params_Get_Publisher_By_ACTIVE : Params_Get_Publisher_By_ACTIVE;
@@ -1173,6 +1368,13 @@ My_Chance : Chance;
 }
 export class Result_Delete_Chance extends Action_Result {
 My_Params_Delete_Chance : Params_Delete_Chance;
+}
+export class Result_Get_Reqwest_publishers_By_Where extends Action_Result {
+My_Result : Reqwest_publishers[];
+My_Params_Get_Reqwest_publishers_By_Where : Params_Get_Reqwest_publishers_By_Where;
+}
+export class Result_Edit_Reqwest_publishers extends Action_Result {
+My_Reqwest_publishers : Reqwest_publishers;
 }
 export class Result_Authenticate extends Action_Result {
 My_Result : User;

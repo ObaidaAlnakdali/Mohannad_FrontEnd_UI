@@ -10,9 +10,26 @@
       </div>
 
       <div class="row">
+
         <div class="col-lg-4">
-          <img src="assets/img/about.jpeg" class="img-fluid" alt="">
+          <div class="single-team-member">
+            <div class="team-img">
+              <a href="#">
+                <img src="assets/img/about.jpeg" alt="">
+              </a>
+              <div class="team-social-icon text-center">
+                <ul>
+                   <li *ngFor="let social of social_media">
+                    <a href={{social.URL}} target="_blank">
+                      <i class="{{'bi bi-' + social.NAME | lowercase}}"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="col-lg-8 pt-4 pt-lg-0 content">
           <h3>{{personal.JOB_TITLE}}</h3>
           <p class="font-italic">
@@ -120,7 +137,7 @@
 
 
       <div class="freindly-site-items">
-          <img  *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
+        <img *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
       </div>
 
 

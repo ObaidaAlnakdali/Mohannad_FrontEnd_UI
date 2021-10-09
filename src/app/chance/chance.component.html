@@ -1,4 +1,22 @@
-<main id="main" *ngIf="personal != null">
+[<main id="main" *ngIf="personal != null">
+
+  <div class="Popular-chances-mob">
+    <button>N</button>
+    <div>
+      <h3>Popular Chances</h3>
+      <ul>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+      </ul>
+    </div>
+
+  </div>
 
   <!-- ======= Services Section ======= -->
   <section id="services" class="services">
@@ -8,20 +26,30 @@
         <h2>Chances</h2>
         <p>{{personal.BLUGER_DESCRIPTION}}</p>
       </div>
+
       <div class="chances">
 
       <div class="Popular-chances">
         <h3>Popular Chances</h3>
         <ul>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
+          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
         </ul>
       </div>
 
       <div class="chances-items">
-        <a href={{chance.LINK}} target="_blank" *ngFor="let chance of chances">
+        <a *ngFor="let chance of chances" routerLink="/chance/{{chance.CHANCE_ID}}" >
           <div class="chance-items-test">
-              <h3>{{chance.TITLE}}</h3>
-              <p>{{chance.DESCRIPTION}}</p>
+              <h3 *ngIf="lang === 'en'">{{chance.TITLE}}</h3>
+              <h3 *ngIf="lang === 'ar'">{{chance.TITLE_AR}}</h3>
+              <p *ngIf="lang === 'en'">{{chance.DESCRIPTION}}</p>
+              <p *ngIf="lang === 'ar'">{{chance.DESCRIPTION_AR}}</p>
               <div class="items-info-test">
                 <span id="chance-date" class="background-item-green">{{chance.END_DATE}}</span>
               </div>
@@ -34,3 +62,4 @@
   </section><!-- End Services Section -->
 
 </main><!-- End #main -->
+]

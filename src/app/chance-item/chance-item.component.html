@@ -1,1 +1,26 @@
-<p>chance-item works!</p>
+<main id="main"  *ngIf="chance_item != null">
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{{chance_item.TITLE}}</h2>
+      </div>
+      <div class="chance_items">
+        <div class="items">
+          <div class="col-md-6 items-desc">
+            <p>{{chance_item.DESCRIPTION}}</p>
+          </div>
+          <div class="col-md-6 items-info">
+            <p>لغة الفرصة :&nbsp;<span>{{chance_item.CHANCE_LANG}}</span></p>
+            <p>نوع الفرصة : &nbsp;<span>{{chance_item.TYPE}}</span></p>
+            <p>رابط الفرصة : &nbsp;<a href="{{chance_item.LINK}}" target="_blank">Click here</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Services Section -->
+
+</main><!-- End #main -->
+]
