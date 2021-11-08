@@ -13,9 +13,11 @@ export class PublisherComponent implements OnInit {
   personal : Personal;
   reqwest = new Reqwest_publishers();
   modalRef: BsModalRef;
+  lang : string;
 
   constructor(private svc : InfosvcService, private modalService: BsModalService, private proxy: Proxy)
   {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getPublisherInfo();
     this.getGeneralInfo();
 

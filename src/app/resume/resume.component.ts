@@ -12,8 +12,10 @@ export class ResumeComponent implements OnInit {
   education: Educations[];
   experience : Experience[];
   personal : Personal ;
+  lang : string;
 
   constructor(private svc : InfosvcService) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getResumeInfo();
     this.getGeneralInfo();
 

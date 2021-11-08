@@ -23,8 +23,10 @@ export class AboutComponent implements OnInit {
   friendlySite: Friendly_sites[];
   personal: Personal;
   mySwiper: Swiper;
+  lang: string;
 
   constructor(private svc: InfosvcService) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getGeneralInfo();
     this.getAboutInfo();
     this.getsocialMediaInfo();
@@ -45,6 +47,7 @@ export class AboutComponent implements OnInit {
       this.skills = this.svc.Skills;
       this.testimonials = this.svc.testimonials;
       this.friendlySite = this.svc.FriendlySite;
+      console.log(this.testimonials);
     });
   }
 
@@ -75,41 +78,7 @@ export class AboutComponent implements OnInit {
         delay: 10,
         time: 1000,
       });
-      new Swiper('.clients-slider', {
-        speed: 400,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        slidesPerView: 'auto',
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true,
-        },
-        breakpoints: {
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          480: {
-            slidesPerView: 3,
-            spaceBetween: 60,
-          },
-          640: {
-            slidesPerView: 4,
-            spaceBetween: 80,
-          },
-          992: {
-            slidesPerView: 6,
-            spaceBetween: 120,
-          },
-        },
-      });
 
     })(jQuery);
   }
-
-
 }

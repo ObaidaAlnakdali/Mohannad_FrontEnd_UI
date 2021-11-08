@@ -1,69 +1,91 @@
-<main id="main" *ngIf="personal != null">
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume" *ngIf="lang === 'en'">
     <div class="container" data-aos="fade-up">
 
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>{{personal.RESUME_DESCRIPTION}}</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Sumary</h3>
-          <div class="resume-item pb-0">
-            <h4>{{personal.NAME}}</h4>
-            <p><em>{{personal.RESUME_SUMARY}}</em>
-            </p>
-
-            <ul>
-              <li>{{personal.ADDRESS}}</li>
-              <li>{{personal.PHONE}}</li>
-              <li>{{personal.EMAIL}}om</li>
-            </ul>
-
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-
-          <div class="resume-item" *ngFor="let eduac of education">
-            <education
-            [Title]='eduac.TITLE'
-            [Date]='eduac.FROM_TO_D'
-            [Name]='eduac.NAME'
-            [Description]='eduac.DESCRIPTION'>
-            </education>
-
-          </div>
-
+        <div class="section-title">
+            <h2>Resume</h2>
+            <p>{{personal.RESUME_DESCRIPTION}}</p>
         </div>
-        <div class="col-lg-6">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item"  *ngFor="let exper of experience">
 
-            <experience
-            [Title]='exper.TITLE'
-            [Date]='exper.FROM_TO_Y'
-            [Address]='exper.ADDRESS'
-            ></experience>
+        <div class="row">
 
-            <ul>
+            <div class="col-lg-6">
+                <h3 class="resume-title">Education</h3>
+                <div class="resume-item" *ngFor="let eduac of education">
+                    <education [Title]='eduac.TITLE' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME'>
+                    </education>
+                    <education [Title]='eduac.TITLE' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME'>
+                    </education>
+                </div>
 
-              <div *ngFor="let experIT of exper.My_Experience_item">
-                <experience-item
-                [Item]='experIT.ITEM'
-                ></experience-item>
-              </div>
+                <h3 class="resume-title">License & Certifications</h3>
+                <div class="resume-item" *ngFor="let eduac of education">
+                    <education [Title]='eduac.TITLE' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME'>
+                    </education>
+                </div>
+            </div>
 
-            </ul>
+            <div class="col-lg-6">
+                <h3 class="resume-title">Professional Experience</h3>
+                <div class="resume-item" *ngFor="let exper of experience">
 
-          </div>
+                    <experience [Title]='exper.TITLE' [Date]='exper.FROM_TO_Y'></experience>
 
+                    <ul>
+
+                        <div *ngFor="let experIT of exper.My_Experience_item">
+                            <experience-item [Item]='experIT.ITEM'></experience-item>
+                        </div>
+
+                    </ul>
+
+                </div>
+
+            </div>
         </div>
-      </div>
-
     </div>
-  </section><!-- End Resume Section -->
+</section>
+<!-- End Resume Section -->
 
-</main><!-- End #main -->
+<!-- ======= Resume Section ======= -->
+<section id="resume rlt" class="resume" *ngIf="lang === 'ar'">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>السيرة ذاتية</h2>
+            <p>{{personal.RESUME_DESCRIPTION_AR}}</p>
+        </div>
+
+        <div class="row text-right">
+
+            <div class="col-lg-6">
+                <h3 class="resume-title">تعليم</h3>
+                <div class="resume-item-ar" *ngFor="let eduac of education">
+                    <education [Title]='eduac.TITLE_AR' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME_AR'>
+                    </education>
+                    <education [Title]='eduac.TITLE_AR' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME_AR'>
+                    </education>
+                </div>
+
+                <h3 class="resume-title">الشهادات و الدورات</h3>
+                <div class="resume-item-ar" *ngFor="let eduac of education">
+                    <education [Title]='eduac.TITLE_AR' [Date]='eduac.FROM_TO_D' [Name]='eduac.NAME_AR'>
+                    </education>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h3 class="resume-title">الخبرة العملية</h3>
+                <div class="resume-item-ar" *ngFor="let exper of experience">
+                    <experience [Title]='exper.TITLE_AR' [Date]='exper.FROM_TO_Y'></experience>
+                    <ul class="rlt">
+                        <experience-item *ngFor="let experIT of exper.My_Experience_item" [Item]='experIT.ITEM_AR'></experience-item>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Resume Section -->

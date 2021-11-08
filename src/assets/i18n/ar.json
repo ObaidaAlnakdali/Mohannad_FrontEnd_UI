@@ -1,10 +1,13 @@
 {
-  "HOME":"الرئيسية",
-  "ABOUT":"عني",
-  "RESUME":"سيرتي",
-  "PUBLISHER":"الإصدارات",
-  "GALLARY":"التصاميم",
-  "BLUGER":"المقالات",
-  "CHANCE":"الفرص",
-  "CONTACT":"التواصل"
+    "HOME": "الرئيسية",
+    "ABOUT": "عني",
+    "RESUME": "سيرتي",
+    "PUBLISHER": "الإصدارات",
+    "GALLARY": "التصاميم",
+    "BLUGER": "المقالات",
+    "CHANCE": "الفرص",
+    "CONTACT": "التواصل",
+    "COURSES": "الدورات",
+    "CONSULT": "استشرني",
+    "LINES": "شركة لاينز"
 }

@@ -1,10 +1,77 @@
 <section id="hero" class="d-flex align-items-center" *ngIf="personal != null">
 
     <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-      <h1>{{personal.NAME}}</h1>
-      <h2>{{personal.HOME_DESCRIPTION}}</h2>
-      <a routerLink="/about" class="btn-about">About Me</a>
+        <h1 style="text-align: center;"><img style="width: 60%" src="../../assets/img/Muhannad Samer.png"></h1>
+        <h2 *ngIf="lang === 'en'">{{personal.HOME_DESCRIPTION}}</h2>
+        <h2 *ngIf="lang === 'ar'">{{personal.HOME_DESCRIPTION_AR}}</h2>
+        <a (click)="openModalWithClass(template)" class="ready-btn">{{"CONSULT" | translate}}</a>
     </div>
+
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 *ngIf="lang === 'en'" class="modal-title pull-left">Consulation</h4>
+            <h4 *ngIf="lang === 'ar'" class="modal-title pull-left">استشارة</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="container">
+
+                <div *ngIf="lang === 'en'" class="row_en">
+                    <div class="col-md-7 d-flex text-en">
+                        <div class="card">
+                            <h2 class="text-consult">
+                                {{personal.CONSULTING_HEADER}}
+                            </h2>
+                            <ul>
+                                <li *ngFor="let services of consulting_services">{{services.CONSULTING_SERVICES_EN}}</li>
+                            </ul>
+                            <p>{{personal.CONSULTING_FOOTER}}</p>
+                            <div style="text-align: center;">
+                                <a href="https://wa.me/96171439307?text=Hello%20I%20would%20like%20to%20schedule%20an%20appointment%20and%20pay%20for%20consultation." target="_blank" class="ready-btn">{{"CONSULT" | translate}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 d-flex align-items-stretch">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="../../assets/img/about.jpeg" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="lang === 'ar'" class="row_ar">
+                    <div class="col-md-7 d-flex text-ar">
+                        <div class="card">
+                            <h2 class="text-consult">
+                                {{personal.CONSULTING_HEADER_AR}}
+                            </h2>
+                            <ul>
+                                <li *ngFor="let services of consulting_services">{{services.CONSULTING_SERVICES_AR}}</li>
+                            </ul>
+                            <p>{{personal.CONSULTING_FOOTER_AR}}</p>
+                            <div style="text-align: center;">
+                                <a href="https://wa.me/96171439307?text=السلام%20عليكم,%20أود%20حجز%20موعد%20وترتيب%20الدفع%20للحصول%20على%20استشارة" target="_blank" class="ready-btn">{{"CONSULT" | translate}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 d-flex align-items-stretch">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="../../assets/img/about.jpeg" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Event List Section -->
+
+        </div>
+    </ng-template>
 
 </section>
 <!-- End Hero -->

@@ -1,147 +1,238 @@
 <main id="main" *ngIf="personal != null">
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
+    <!-- ======= About Section English======= -->
 
-      <div class="section-title">
-        <h2>About</h2>
-        <p>{{personal.ABOUT_DESCRIPTION}}</p>
-      </div>
+    <div *ngIf="lang === 'en'">
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
 
-      <div class="row">
+                <div class="section-title">
+                    <h2>About</h2>
+                    <p>{{personal.ABOUT_DESCRIPTION}}</p>
+                </div>
 
-        <div class="col-lg-4">
-          <div class="single-team-member">
-            <div class="team-img">
-              <a href="#">
-                <img src="assets/img/about.jpeg" alt="">
-              </a>
-              <div class="team-social-icon text-center">
-                <ul>
-                   <li *ngFor="let social of social_media">
-                    <a href={{social.URL}} target="_blank">
-                      <i class="{{'bi bi-' + social.NAME | lowercase}}"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="single-team-member">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="assets/img/about.jpeg" alt="">
+                                </a>
+                                <div class="team-social-icon text-center">
+                                    <ul>
+                                        <li *ngFor="let social of social_media">
+                                            <a href={{social.URL}} target="_blank">
+                                                <i class="{{'bi bi-' + social.NAME | lowercase}}"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 pt-4 pt-lg-0 content">
+                        <h3>{{personal.JOB_TITLE}}</h3>
+                        <p class="font-italic">
+                            {{personal.JOB_DESCRIPTION}}
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Email:</strong>{{personal.EMAIL}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Website:</strong>{{personal.WEBSITE}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong>{{personal.PHONE}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>City:</strong>{{personal.ADDRESS}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong>{{personal.DEGREE}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>{{personal.ABOUT_SUMARY}}</p>
+                    </div>
+                </div>
+
             </div>
-          </div>
-        </div>
+        </section>
+        <!-- End About Section -->
 
-        <div class="col-lg-8 pt-4 pt-lg-0 content">
-          <h3>{{personal.JOB_TITLE}}</h3>
-          <p class="font-italic">
-            {{personal.JOB_DESCRIPTION}}
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong>{{personal.EMAIL}}</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Website:</strong>{{personal.WEBSITE}}</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong>{{personal.PHONE}}</li>
-                <li><i class="icofont-rounded-right"></i> <strong>City:</strong>{{personal.ADDRESS}}</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong>{{personal.DEGREE}}</li>
-              </ul>
+        <!-- ======= Skills Section ======= -->
+        <section id="skills" class="skills">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Skills</h2>
+                    <p>{{personal.SKILLS_DESCRIPTION}}</p>
+                </div>
+
+                <div class="row skills-content col-lg-12">
+
+
+                    <skills class="col-lg-6" *ngFor="let skill of skills" [Name]='skill.NAME' [Value]='skill.VALUE'></skills>
+
+
+                </div>
+
             </div>
-          </div>
-          <p>{{personal.ABOUT_SUMARY}}</p>
-        </div>
-      </div>
+        </section>
+        <!-- End Skills Section -->
 
+        <!-- ======= Facts Resume ======= -->
+        <app-resume></app-resume>
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials" style="background-color: #f7fbfe;">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                    <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
+                </div>
+
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item" *ngFor="let testimonial of testimonials">
+                        <testimonials [Name]='testimonial.NAME' [Title]='testimonial.TITLE' [Description]='testimonial.DESCRIPTION' [My_Image_Url]='testimonial.My_Image_Url'></testimonials>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials Section -->
+
+        <!-- ======= Friendly Sites Section ======= -->
+        <section id="freindly-site" class="freindly-site">
+            <div class="container">
+                <div class="section-title">
+                    <h2>{{personal.FRIENDLY_SITES}}</h2>
+                </div>
+                <div class="freindly-site-items">
+                    <img *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
+                </div>
+
+
+            </div>
+        </section>
+        <!-- End Friendly Sites Section -->
     </div>
-  </section><!-- End About Section -->
-
-  <!-- ======= Skills Section ======= -->
-  <section id="skills" class="skills">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-        <p>{{personal.SKILLS_DESCRIPTION}}</p>
-      </div>
-
-      <div class="row skills-content col-lg-12">
 
 
-        <skills class="col-lg-6" *ngFor="let skill of skills" [Name]='skill.NAME' [Value]='skill.VALUE'></skills>
+
+    <!-- ======= About Section Arabic======= -->
+
+    <div *ngIf="lang === 'ar'">
+        <section id="about" class="about rlt">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>عني</h2>
+                    <p>{{personal.ABOUT_DESCRIPTION_AR}}</p>
+                </div>
+
+                <div class="row text-right">
+
+                    <div class="col-lg-4">
+                        <div class="single-team-member">
+                            <div class="team-img">
+                                <a href="#">
+                                    <img src="assets/img/about.jpeg" alt="">
+                                </a>
+                                <div class="team-social-icon text-center">
+                                    <ul>
+                                        <li *ngFor="let social of social_media">
+                                            <a href={{social.URL}} target="_blank">
+                                                <i class="{{'bi bi-' + social.NAME | lowercase}}"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 pt-4 pt-lg-0 content">
+                        <h3>{{personal.JOB_TITLE_AR}}</h3>
+                        <p class="font-italic">
+                            {{personal.JOB_DESCRIPTION_AR}}
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <ul>
+                                    <li><i class="icofont-rounded-right"></i> <strong>الإيميل : </strong>{{personal.EMAIL}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong> شركتي : </strong>{{personal.WEBSITE}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>البلد : </strong>{{personal.CONTACT_LOCATION_AR}}</li>
+                                    <li><i class="icofont-rounded-right"></i> <strong>الشهادة : </strong>{{personal.DEGREE_AR}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>{{personal.ABOUT_SUMARY_AR}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End About Section -->
+
+        <!-- ======= Skills Section ======= -->
+        <section id="skills" class="skills rlt">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>المهارات</h2>
+                    <p>{{personal.SKILLS_DESCRIPTION_AR}}</p>
+                </div>
+
+                <div class="row skills-content col-lg-12">
 
 
-      </div>
+                    <skills class="col-lg-6" *ngFor="let skill of skills" [Name]='skill.NAME_AR' [Value]='skill.VALUE'></skills>
 
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Skills Section -->
+
+        <!-- ======= Facts Resume ======= -->
+        <app-resume></app-resume>
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials" style="background-color: #f7fbfe;">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title rlt">
+                    <h2>التوصيات</h2>
+                    <p>{{personal.TESTIMONTION_DESCRIPTION_AR}}</p>
+                </div>
+
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item" *ngFor="let testimonial of testimonials">
+                        <testimonials [Name]='testimonial.NAME_AR' [Title]='testimonial.TITLE_AR' [Description]='testimonial.DESCRIPTION_AR' [My_Image_Url]='testimonial.My_Image_Url'></testimonials>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Testimonials Section -->
+
+        <!-- ======= Friendly Sites Section ======= -->
+        <section id="freindly-site" class="freindly-site rlt">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>{{personal.FRIENDLY_SITES_AR}}</h2>
+                </div>
+
+
+                <div class="freindly-site-items">
+                    <img *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
+                </div>
+
+
+            </div>
+        </section>
+        <!-- End Friendly Sites Section -->
     </div>
-  </section><!-- End Skills Section -->
-
-  <!-- ======= Facts Section ======= -->
-  <section id="facts" class="facts">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Facts</h2>
-        <p>{{personal.FACTS_DESCRIPTION}}</p>
-      </div>
-
-      <div class="row counters">
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">232</span>
-          <p>Clients</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">521</span>
-          <p>Projects</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">1,463</span>
-          <p>Hours Of Support</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">15</span>
-          <p>Hard Workers</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Facts Section -->
-
-  <!-- ======= Testimonials Section ======= -->
-  <section id="testimonials" class="testimonials">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Testimonials</h2>
-        <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
-      </div>
-
-      <div class="owl-carousel testimonials-carousel">
-        <div class="testimonial-item" *ngFor="let testimonial of testimonials">
-          <testimonials [Name]='testimonial.NAME' [Title]='testimonial.TITLE' [Description]='testimonial.DESCRIPTION'
-            [My_Image_Url]='testimonial.My_Image_Url'></testimonials>
-        </div>
-      </div>
-    </div>
-  </section><!-- End Testimonials Section -->
-
-  <!-- ======= Friendly Sites Section ======= -->
-  <section id="freindly-site" class="freindly-site">
-    <div class="container">
-      <div class="section-title">
-        <h2>Friendly Sites</h2>
-        <p>{{personal.TESTIMONTION_DESCRIPTION}}</p>
-      </div>
 
 
-      <div class="freindly-site-items">
-        <img *ngFor="let site of friendlySite" src={{site.My_Image_Url}} class="friendly-site-img" alt="">
-      </div>
 
-
-    </div>
-  </section><!-- End Friendly Sites Section -->
-
-</main><!-- End #main -->
+</main>
+<!-- End #main -->

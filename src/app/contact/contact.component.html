@@ -1,109 +1,183 @@
 <main id="main" *ngIf="personal != null">
 
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
 
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>{{personal.CONTACT_DESCRIPTION}}</p>
-      </div>
+            <div *ngIf="lang === 'en'" class="section-title">
+                <h2>Contact</h2>
+                <p>{{personal.CONTACT_DESCRIPTION}}</p>
+            </div>
 
-      <!----------------Location Code--------------------->
+            <div *ngIf="lang === 'ar'" class="section-title rlt">
+                <h2>تواصل</h2>
+                <p>{{personal.CONTACT_DESCRIPTION_AR}}</p>
+            </div>
 
-      <!-- <div>
+            <!----------------Location Code--------------------->
+
+            <!-- <div>
           <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
         </div> -->
 
-      <!----------------Location Code--------------------->
+            <!----------------End Location Code--------------------->
 
-      <div class="row mt-5">
+            <!---------End English---------->
 
-        <div class="col-lg-4">
-          <div class="info">
+            <div *ngIf="lang === 'en'" class="row mt-5">
 
-            <div class="address">
-              <i class="icofont-google-map"></i>
-              <h4>Location</h4>
-              <p>{{personal.CONTACT_LOCATION}}</p>
-            </div>
+                <div class="col-lg-4">
+                    <div class="info">
 
-            <div class="email">
-              <i class="icofont-envelope"></i>
-              <h4>Email</h4>
-              <p>{{personal.EMAIL}}</p>
-            </div>
+                        <div class="address">
+                            <i class="icofont-google-map i-en"></i>
+                            <h4>Location</h4>
+                            <p>{{personal.CONTACT_LOCATION}}</p>
+                        </div>
 
-            <div class="phone">
-              <i class="icofont-phone"></i>
-              <h4>Call</h4>
-              <p>{{personal.PHONE}}</p>
-            </div>
+                        <div class="email">
+                            <i class="icofont-envelope i-en"></i>
+                            <h4>Email</h4>
+                            <p>{{personal.EMAIL}}</p>
+                        </div>
 
-          </div>
-        </div>
+                        <div class="phone">
+                            <i class="icofont-bag-alt i-en"></i>
+                            <h4>My Company</h4>
+                            <p><a href="https://lines-global.com/" target="_blank">Click here</a></p>
+                        </div>
 
-        <div class="col-lg-8 mt-5 mt-lg-0">
+                    </div>
+                </div>
 
-          <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate
-            class="php-email-form">
+                <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <div class="form-row">
+                    <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate class="php-email-form">
 
-              <div class="col-md-6 form-group">
-                <input type="text" minlength="4" maxlength="30" class="form-control" [(ngModel)]="msg.name" name="name" #name="ngModel"
-                  required placeholder="Your Name">
-                <span class="text-danger" *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
+                        <div class="form-row">
+
+                            <div class="col-md-6 form-group">
+                                <input type="text" minlength="4" maxlength="30" class="form-control" [(ngModel)]="msg.name" name="name" #name="ngModel" required placeholder="Your Name">
+                                <span class="text-danger bold" *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
                   Name is required
                 </span>
-                <span class="text-danger" *ngIf="name.touched && name.errors?.minlength">
+                                <span class="text-danger bold" *ngIf="name.touched && name.errors?.minlength">
                   Please enter at least 4 chars
                 </span>
-              </div>
+                            </div>
 
-              <div class="col-md-6 form-group">
-                <input type="text" class="form-control" [(ngModel)]="msg.email" name="email" #email="ngModel" required
-                  email placeholder="Your Email" />
-                <span class="text-danger" *ngIf="(email.touched || registerForm.submitted) && (email.errors?.required || email.errors?.email)">
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" [(ngModel)]="msg.email" name="email" #email="ngModel" required email placeholder="Your Email" />
+                                <span class="text-danger bold" *ngIf="(email.touched || registerForm.submitted) && (email.errors?.required || email.errors?.email)">
                   Please enter a valid email
                 </span>
-              </div>
+                            </div>
 
-            </div>
+                        </div>
 
-            <div class="form-group">
-              <input type="text" class="form-control" minlength="8" maxlength="40" [(ngModel)]="msg.supject" name="supject" #supject="ngModel"
-              required placeholder="Subject" />
+                        <div class="form-group">
+                            <input type="text" class="form-control" minlength="8" maxlength="40" [(ngModel)]="msg.supject" name="supject" #supject="ngModel" required placeholder="Subject" />
 
-                <span class="text-danger" *ngIf="(supject.touched || registerForm.submitted) && supject.errors?.required">
-                  Subject is required
-                </span>
-                <span class="text-danger" *ngIf="supject.touched && supject.errors?.minlength">
-                  Please enter at least 8 chars of subject
-                </span>
+                            <span class="text-danger bold" *ngIf="(supject.touched || registerForm.submitted) && supject.errors?.required">
+                Subject is required
+              </span>
+                            <span class="text-danger bold" *ngIf="supject.touched && supject.errors?.minlength">
+                Please enter at least 8 chars of subject
+              </span>
 
-            </div>
+                        </div>
 
-            <div class="form-group">
-              <textarea class="form-control" [(ngModel)]="msg.message" name="message" #message="ngModel"
-              required rows="5" placeholder="Message"></textarea>
-              <span class="text-danger" *ngIf="(message.touched || registerForm.submitted) && message.errors?.required">
+                        <div class="form-group">
+                            <textarea class="form-control" [(ngModel)]="msg.message" name="message" #message="ngModel" required rows="5" placeholder="Message"></textarea>
+                            <span class="text-danger bold" *ngIf="(message.touched || registerForm.submitted) && message.errors?.required">
                 Please write something for us
               </span>
 
+                        </div>
+
+                        <!-- <div class="text-center"><button type="submit">Send Message</button></div> -->
+                        <div class="text-center">
+                            <span>
+                <button type="submit" class="ready-btn">Send Message</button>
+              </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!---------End English---------->
+
+
+            <!---------Arabi---------->
+            <div *ngIf="lang === 'ar'" class="row mt-5 rlt text-right">
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="icofont-google-map i-ar"></i>
+                            <h4>الموقع</h4>
+                            <p>{{personal.CONTACT_LOCATION_AR}}</p>
+                        </div>
+                        <div class="email">
+                            <i class="icofont-envelope i-ar"></i>
+                            <h4>الإيميل</h4>
+                            <p>{{personal.EMAIL}}</p>
+                        </div>
+                        <div class="phone">
+                            <i class="icofont-bag-alt i-ar"></i>
+                            <h4>شركتي</h4>
+                            <p><a href="https://lines-global.com/" target="_blank">اضغط هنا</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 mt-5 mt-lg-0">
+                    <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate class="php-email-form">
+                        <div class="form-row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" minlength="4" maxlength="30" class="form-control" [(ngModel)]="msg.name" name="name" #name="ngModel" required placeholder="الاسم">
+                                <span class="text-danger bold" *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
+                الاسم مطلوب
+              </span>
+                                <span class="text-danger bold" *ngIf="name.touched && name.errors?.minlength">
+                يجب أن يكون هناك 4 حروف على الأقل
+              </span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" class="form-control" [(ngModel)]="msg.email" name="email" #email="ngModel" required email placeholder="الإيميل" />
+                                <span class="text-danger bold" *ngIf="(email.touched || registerForm.submitted) && (email.errors?.required || email.errors?.email)">
+                اكتب ايميلا صحيحا
+              </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" minlength="8" maxlength="40" [(ngModel)]="msg.supject" name="supject" #supject="ngModel" required placeholder="عنوان الرسالة" />
+                            <span class="text-danger bold" *ngIf="(supject.touched || registerForm.submitted) && supject.errors?.required">
+              هذه الخانة مطلوبة
+            </span>
+                            <span class="text-danger bold" *ngIf="supject.touched && supject.errors?.minlength">
+                    يجب أن يكون هناك 8 حروف على الأقل
+            </span>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" [(ngModel)]="msg.message" name="message" #message="ngModel" required rows="5" placeholder="نص الرسالة"></textarea>
+                            <span class="text-danger bold" *ngIf="(message.touched || registerForm.submitted) && message.errors?.required">
+                              يرجى كتابة شيء بالنسبة لنا
+            </span>
+                        </div>
+                        <!-- <div class="text-center"><button type="submit">Send Message</button></div> -->
+                        <div class="text-center">
+                            <span>
+              <button type="submit" class="ready-btn" style="width: 10rem">إرسال</button>
+            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="text-center"><button type="submit">Send Message</button></div>
-
-          </form>
+            <!---------End Arabi---------->
 
         </div>
+    </section>
+    <!-- End Contact Section -->
 
-      </div>
-    </div>
-  </section><!-- End Contact Section -->
-
-</main><!-- End #main -->
-
-
-
+</main>
+<!-- End #main -->

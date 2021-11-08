@@ -13,10 +13,11 @@ export class GallaryComponent implements OnInit {
 
   personal: Personal;
   gallary : Gallary [];
+  lang: string;
 
   constructor(private svc : InfosvcService)
   {
-
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getGeneralInfo();
     this.getGallaryInfo();
   }

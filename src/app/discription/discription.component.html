@@ -1,47 +1,58 @@
 <main id="main" *ngIf="gallary_item != null">
 
-  <section id="discription-details" class="discription-details" *ngFor="let item of gallary_item">
-    <div class="container">
-      <div class="row">
+    <section id="discription-details" class="discription-details" *ngFor="let item of gallary_item">
+        <div class="container">
+            <div class="row">
 
-        <div class="col-lg-8">
+                <div class="col-lg-8">
 
-          <div class="discription-title">
-            <a routerLink="/gallary" class="twitter"><i class="icofont-bubble-left icofont-5x"></i></a>
-            <h2>This is an example of discription detail</h2>
-          </div>
+                    <div class="discription-title">
+                        <a routerLink="/gallary" class="twitter"><i class="icofont-bubble-left icofont-5x"></i></a>
+                        <h2 *ngIf="lang === 'en'">This is an example of discription detail</h2>
+                        <h2 class="rlt" *ngIf="lang === 'ar'">هذا مثال عن تفاصيل الوصف</h2>
+                    </div>
 
-          <swiper
-          [spaceBetween]="30"
-          [navigation]="true"
-          class="mySwiper"
-          >
-            <ng-template swiperSlide *ngFor="let items of item.My_Uploaded_files">
-              <img src={{items.My_URL}} class="img-fluid" alt="">
-            </ng-template>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </swiper>
-          <i class="icofont-hand-drag2 icofont-5x"></i>
+                    <swiper [spaceBetween]="30" [navigation]="true" class="mySwiper">
+                        <ng-template swiperSlide *ngFor="let items of item.My_Uploaded_files">
+                            <img src={{items.My_URL}} class="img-fluid" alt="">
+                        </ng-template>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </swiper>
+                    <i class="icofont-hand-drag2 icofont-5x"></i>
 
+                </div>
+
+                <div *ngIf="lang === 'en'" class="col-lg-4 discription-info">
+                    <h3>{{item.NAME}}</h3>
+                    <ul>
+                        <li><strong>Category</strong>: {{item.NAME}}</li>
+                        <li><strong>Project date</strong>: {{item.PROJECTDATE}}</li>
+                        <li><strong>Project URL</strong>: <a href="#">{{item.PROJECTURL}}</a></li>
+                    </ul>
+                    <p>
+                        {{item.DESCRIPTION}}
+                    </p>
+                </div>
+
+                <div *ngIf="lang === 'ar'" class="col-lg-4 discription-info rtl text-right">
+                    <h3 class="bold">{{item.NAME_AR}}</h3>
+                    <ul class="rtl">
+                        <li><strong>الفئة</strong>: {{item.NAME_AR}}</li>
+                        <li><strong>تاريخ المشروع</strong>: {{item.PROJECTDATE}}</li>
+                        <li><strong>رابط المشروع</strong>: <a href="#">{{item.PROJECTURL}}</a></li>
+                    </ul>
+                    <p>
+                        {{item.DESCRIPTION_AR}}
+                    </p>
+                </div>
+
+            </div>
         </div>
 
-        <div class="col-lg-4 discription-info">
-          <h3>{{item.NAME}}</h3>
-          <ul>
-            <li><strong>Category</strong>: {{item.NAME}}</li>
-            <li><strong>Project date</strong>: {{item.PROJECTDATE}}</li>
-            <li><strong>Project URL</strong>: <a href="#">{{item.PROJECTURL}}</a></li>
-          </ul>
-          <p>
-            {{item.DESCRIPTION}}
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </section>
+    </section>
 
 
 
-</main><!-- End #main -->
+</main>
+<!-- End #main -->

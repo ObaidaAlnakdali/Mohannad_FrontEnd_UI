@@ -8,7 +8,8 @@ declare var jQuery:any;
 export class SkillsComponent implements OnInit {
   @Input () Name = '';
   @Input () Value = '';
-  constructor() { }
+  lang: string;
+  constructor() {this.lang = localStorage.getItem('lang') || 'ar';}
 
   ngOnInit(): void {
     (function($) {

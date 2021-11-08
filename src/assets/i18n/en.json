@@ -1,10 +1,13 @@
 {
-  "HOME":"Home",
-  "ABOUT":"About",
-  "RESUME":"Resume",
-  "PUBLISHER":"Publisher",
-  "GALLARY":"Gallary",
-  "BLUGER":"Bluger",
-  "CHANCE":"Chance",
-  "CONTACT":"Contact"
+    "HOME": "Home",
+    "ABOUT": "About",
+    "RESUME": "Resume",
+    "PUBLISHER": "Publisher",
+    "GALLARY": "Gallary",
+    "BLUGER": "Bluger",
+    "CHANCE": "Chance",
+    "CONTACT": "Contact",
+    "COURSES": "Courser",
+    "CONSULT": "Consulation",
+    "LINES": "Lines Global"
 }

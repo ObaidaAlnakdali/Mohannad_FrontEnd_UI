@@ -12,6 +12,7 @@ import { GallaryComponent } from './gallary/gallary.component';
 import { HomeComponent } from './home/home.component';
 import { PublisherComponent } from './publisher/publisher.component';
 import { ResumeComponent } from './resume/resume.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'resume', component: ResumeComponent },
   { path: 'publisher', component: PublisherComponent },
   { path: 'gallary', component: GallaryComponent},
+  { path: 'courses', component: CoursesComponent},
   { path: 'discription/:GALLARY_ID', component: DiscriptionComponent },
   { path: 'bluger', component: BlugerComponent },
   { path: 'bluger/content/:BLUGER_ID', component: BlugerContentComponent },

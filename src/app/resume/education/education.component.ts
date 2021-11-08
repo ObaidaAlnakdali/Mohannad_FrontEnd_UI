@@ -9,7 +9,6 @@ export class EducationComponent implements OnInit {
   @Input () Title = '';
   @Input () Date = '';
   @Input () Name = '';
-  @Input () Description = '';
   constructor() { }
 
   ngOnInit(): void {

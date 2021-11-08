@@ -1,12 +1,61 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(assets/fonts/Tajawal-Light.ttf);
+}
 
-*::selection{
-  background: #5ef3ca57;
+* {
+    font-family: myFirstFont !important;
+}
+
+*::selection {
+    background: #ee535542;
+    ;
 }
 
 .services .icon-box {
-  padding: 70px 20px 10px 20px !important;
+    padding: 0px 20px 10px 20px !important;
 }
 
-.modal.show .modal-dialog {
-  top: 25% !important;
+.modal-open .modal {
+    display: flex !important;
+    justify-content: center;
+    height: auto;
+}
+
+.owl-carousel.owl-drag .owl-item {
+    padding: 0 35px !important;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #d1383b;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d1383b;
+}
+
+.bold {
+    font-weight: bold !important;
 }

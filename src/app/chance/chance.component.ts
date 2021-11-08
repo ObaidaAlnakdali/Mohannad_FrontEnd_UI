@@ -1,23 +1,33 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chance, Personal } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-chance',
   templateUrl: './chance.component.html',
-  styleUrls: ['./chance.component.css']
+  styleUrls: ['./chance.component.css'],
 })
 export class ChanceComponent implements OnInit {
-  chances : Chance[];
-  chancesActive : Chance[];
-  personal : Personal;
-  lang : string;
+  chances: Chance[];
+  chancesActive: Chance[];
+  personal: Personal;
+  lang: string;
+  modalRef: BsModalRef;
 
-  constructor(private svc : InfosvcService, public translate : TranslateService) {
-    this.lang=localStorage.getItem("lang") || 'en';
+  constructor(
+    private svc: InfosvcService,
+    public translate: TranslateService,
+    private modalService: BsModalService
+  ) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getChanceInfo();
     this.getGeneralInfo();
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
   ngOnInit(): void {
@@ -33,22 +43,21 @@ export class ChanceComponent implements OnInit {
     });
   }
 
-  activeDateChance(){
+  activeDateChance() {
     setTimeout(() => {
       var navElements = document.querySelectorAll('.chances span');
-      navElements.forEach(function(x) {
+      navElements.forEach(function (x) {
         let today = new Date();
         let dd = String(today.getDate()).padStart(2, '0');
         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = today.getFullYear();
-        let todays =  Date.parse(yyyy + '-' + mm + '-' + dd);
+        let todays = Date.parse(yyyy + '-' + mm + '-' + dd);
         let date = Date.parse(x.textContent);
-        if(date < todays){
-          x.classList.toggle("background-item-red");
+        if (date < todays) {
+          x.classList.toggle('background-item-red');
         }
-      })
+      });
     }, 2000);
-
   }
 
   getGeneralInfo() {
@@ -71,7 +80,7 @@ export class ChanceComponent implements OnInit {
     }
   }
 
-  checkDate(e){
-    console.log(e)
+  checkDate(e) {
+    console.log(e);
   }
 }

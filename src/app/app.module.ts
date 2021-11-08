@@ -31,7 +31,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BlugerContentComponent } from './bluger-content/bluger-content.component';
 import { BlugerTitlesComponent } from './bluger-titles/bluger-titles.component';
 import { BlugerCategoryComponent } from './bluger-category/bluger-category.component';
-
+import { CoursesComponent } from './courses/courses.component';
 
 
 @NgModule({
@@ -57,6 +57,7 @@ import { BlugerCategoryComponent } from './bluger-category/bluger-category.compo
     BlugerContentComponent,
     BlugerTitlesComponent,
     BlugerCategoryComponent,
+    CoursesComponent,
 
   ],
   imports: [

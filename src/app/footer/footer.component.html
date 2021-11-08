@@ -1,99 +1,125 @@
-<!-- <footer id="footer" class="flex">
-
-  <div class="container footer credits-custome">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Mohannad</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      Developed by <a href="https://www.linkedin.com/in/obaida-alnakdali-72b1651ba/" target="_blank">Obaida Alnakdali</a>
-      , Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
-    </div>
-  </div>
-
-  <div class="container footer">
-    <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate class="php-email-form footer-forms">
-      <div class="form-row">
-        <div class="col-md-12 form-group margin-footer-input">
-          <input type="text" class="form-control" [(ngModel)]="Email" name="email" #email="ngModel" required
-            email placeholder="Your Email" />
-          <span class="text-danger" *ngIf="(email.touched || registerForm.submitted) && (email.errors?.required || email.errors?.email)">
-            Please enter a valid email
-          </span>
-        </div>
-      </div>
-      <div class="text-center">
-          <button type="submit" class="btn-download" >Join Us</button>
-      </div>
-    </form>
-  </div>
-
-</footer> -->
-
-<footer>
-  <div class="footer-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="footer-content">
-            <div class="footer-head">
-              <div class="footer-logo">
-                <h2><span>e</span>Business</h2>
-              </div>
-
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-              <div class="footer-icons">
-                <ul style="padding:0px">
-                  <li *ngFor="let social of social_media">
-                    <a href={{social.URL}} target="_blank">
-                      <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end single footer -->
-        <div class="col-md-4">
-          <div class="footer-content">
-            <div class="footer-head">
-              <h4>information</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-              </p>
-              <div class="container footer">
-                <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit()" novalidate class="php-email-form footer-forms">
-                  <div class="form-row">
-                    <div class="col-md-12 form-group margin-footer-input">
-                      <input type="text" class="form-control" [(ngModel)]="Email" name="email" #email="ngModel" required
-                        email placeholder="Your Email" />
-                      <span class="text-danger" *ngIf="(email.touched || registerForm.submitted) && (email.errors?.required || email.errors?.email)">
-                        Please enter a valid email
-                      </span>
+<footer *ngIf="personal != null">
+    <div class="footer-area">
+        <div class="container">
+            <div *ngIf="lang === 'en'" class="row">
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <div class="footer-logo">
+                                <h2><img class="logo" src="../../assets/img/Muhannad_Samer.png"></h2>
+                            </div>
+                            <p>{{personal.FOOTER_ABOUT_ME}}</p>
+                        </div>
                     </div>
-                  </div>
-                  <div class="text-center">
-                      <button type="submit" class="btn-submit" >Join Us</button>
-                  </div>
-                </form>
-              </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Lines Global</h4>
+                            <p>
+                                {{personal.FOOTER_ABOUT_LINES}}
+                            </p>
+                            <div class="container footer">
+                                <div>
+                                    <a href="https://lines-global.com/" target="_blank" class="ready-btn">{{"LINES" | translate}}</a>
+                                </div>
+                                <div class="footer-icons">
+                                    <ul class="footer-icon">
+                                        <li *ngFor="let social of social_media">
+                                            <a href={{social.URL}} target="_blank">
+                                                <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>Courses</h4>
+                            <div class="flicker-img">
+                                <a routerLink="/courses" *ngFor='let course of courses ;let i = index'>
+                                    <img *ngIf="i<6" src={{course.My_Image_Url}} alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- end single footer -->
-        <div class="col-md-4">
-          <div class="footer-content">
-            <div class="footer-head">
-              <h4>Articles</h4>
-              <div class="flicker-img">
-                <a href="#" *ngFor="let Category of blugerCategory"><img src={{Category.My_Image_Url}} alt=""></a>
-              </div>
+
+
+            <div *ngIf="lang === 'ar'" class="row-ar">
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <div class="footer-logo">
+                                <h2><img class="logo" src="../../assets/img/Muhannad_Samer.png"></h2>
+                            </div>
+
+                            <p>{{personal.FOOTER_ABOUT_ME_AR}}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>لاينز جلوبل</h4>
+                            <p>
+                                {{personal.FOOTER_ABOUT_LINES_AR}}
+                            </p>
+                            <div class="container footer">
+                                <div>
+                                    <a href="https://lines-global.com/" target="_blank" class="ready-btn">{{"LINES" | translate}}</a>
+                                </div>
+                                <div class="footer-icons">
+                                    <ul class="footer-icon">
+                                        <li *ngFor="let social of social_media">
+                                            <a href={{social.URL}} target="_blank">
+                                                <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end single footer -->
+                <div class="col-md-4">
+                    <div class="footer-content">
+                        <div class="footer-head">
+                            <h4>دورات</h4>
+                            <div class="flicker-img">
+                                <a routerLink="/courses" *ngFor='let course of courses ;let i = index'>
+                                    <img *ngIf="i<6" src={{course.My_Image_Url}} alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+
+            <div class="last-footer" *ngIf="lang === 'en'">
+                <p>© 2022 Muhannad Alsamer All Rights Reserved</p>
+                <p>Devloped by <a href="https://www.linkedin.com/in/obaidaAlnakdali/" target="_blank">Obaida Alnakdali</a></p>
+            </div>
+
+            <div class="last-footer rlt text-right" *ngIf="lang === 'ar'">
+                <p>© 2022 مهند السامر جميع الحقوق محفوظة</p>
+                <p>تم تطوير الموقع من قبل <a href="https://www.linkedin.com/in/obaidaAlnakdali/" target="_blank">عبيدة النكدلي</a></p>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
 
-</footer><!-- End  Footer -->
-
+</footer>
+<!-- End  Footer -->

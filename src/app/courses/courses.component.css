@@ -1,0 +1,296 @@
+/*--------------------------------------------------------------
+# More Services
+--------------------------------------------------------------*/
+
+#main {
+    position: relative;
+}
+
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.more-services {
+    padding: 60px 0;
+}
+
+.more-services .card {
+    border: 0;
+    padding: 160px 20px 20px 20px;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.more-services .card-body {
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    transition: ease-in-out 0.4s;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.more-services .card-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.more-services .card-title a {
+    color: #222222;
+}
+
+.more-services .card-text {
+    color: #5e5e5e;
+}
+
+.more-services .read-more a {
+    color: #777777;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    transition: 0.4s;
+}
+
+.more-services .read-more a:hover {
+    text-decoration: underline;
+}
+
+.more-services .card:hover .card-body {
+    background: #f74346;
+}
+
+.more-services .card:hover .read-more a,
+.more-services .card:hover .card-title,
+.more-services .card:hover .card-title a,
+.more-services .card:hover .card-text {
+    color: #fff;
+}
+
+.card:hover link-read .read-more a {
+    color: #fff !important;
+}
+
+
+/*--------------------------------------------------------------
+# Event List
+--------------------------------------------------------------*/
+
+.event-list .card {
+    border: 0;
+    padding: 0 30px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align: center;
+}
+
+.event-list .card-img {
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    overflow: hidden;
+    z-index: 9;
+    border-radius: 0;
+}
+
+.event-list .card-img img {
+    max-width: 70%;
+    transition: all 0.3s ease-in-out;
+}
+
+.event-list .card-body {
+    z-index: 10;
+    background: #fff;
+    border-top: 4px solid #fff;
+    padding: 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    margin-top: -60px;
+    transition: 0.3s;
+}
+
+.event-list .card-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #24325d;
+}
+
+.event-list .card-title a {
+    color: #24325d;
+    transition: 0.3s;
+}
+
+.event-list .card-text {
+    color: #5e5e5e;
+}
+
+.event-list .read-more a {
+    color: #777777;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.event-list .read-more a:hover {
+    color: #006fbe;
+}
+
+.event-list .card:hover img {
+    transform: scale(1.1);
+}
+
+.event-list .card:hover .card-body {
+    border-color: #eb3f42;
+}
+
+.event-list .card:hover .card-body .card-title a {
+    color: #ab2e30;
+}
+
+.modal-body {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.soon {
+    position: absolute;
+    top: 0;
+}
+
+.soon img {
+    opacity: 0.7;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.soon h1 {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    color: #ab2e30;
+    opacity: 1;
+    transform: rotate(345deg);
+    -webkit-transform: rotate(345deg);
+    -moz-transform: rotate(345deg);
+    -ms-transform: rotate(345deg);
+    -o-transform: rotate(345deg);
+}
+
+.rtl {
+    direction: rtl;
+}
+
+@media (min-width: 768px) {
+    .pre-ar,
+    .pre-en {
+        margin: 10px 30px;
+    }
+}
+
+.pre-ar {
+    text-align: right;
+    white-space: break-spaces;
+}
+
+.pre-en {
+    white-space: break-spaces;
+    text-align: left;
+}
+
+.justify-center {
+    justify-content: center;
+}

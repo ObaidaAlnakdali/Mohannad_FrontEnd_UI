@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { $$ } from 'protractor';
 import { Proxy, Socialmedia } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
+declare var jQuery: any;
 
 declare var jQuery : any;
 
@@ -15,12 +17,14 @@ export class HeaderComponent implements OnInit {
 
   social_media: Socialmedia[];
   Name = "icofont-";
+  lang: string;
 
   constructor(
     private proxy : Proxy,
     private svc : InfosvcService,
     public translate : TranslateService
   ) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getHeaderInfo();
   }
 
@@ -52,4 +56,7 @@ export class HeaderComponent implements OnInit {
     navLinks.appendChild(navLinksitem);
   }
 
+  top() {
+    window.scroll(0,0);
+  }
 }

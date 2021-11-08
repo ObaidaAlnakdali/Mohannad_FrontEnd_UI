@@ -1,0 +1,162 @@
+<main id="main" *ngIf="personal != null">
+
+    <section id="services" class="more-services">
+        <div class="container" data-aos="fade-up">
+
+            <div *ngIf="lang === 'en'" class="section-title">
+                <h2>Courses</h2>
+                <p>{{personal.COURSES_DESCRIPTION}}</p>
+            </div>
+
+            <div *ngIf="lang === 'ar'" class="section-title">
+                <h2>دورات</h2>
+                <p class="rtl">{{personal.COURSES_DESCRIPTION_AR}}</p>
+            </div>
+
+            <div *ngIf="lang === 'en'" class="section-title">
+                <h2>English</h2>
+            </div>
+
+            <div *ngIf="lang === 'en'" class="row justify-center" style="padding-bottom: 60px">
+                <div class="col-md-6 d-flex align-items-stretch" *ngFor="let course_en of courses_en">
+                    <a (click)="openModalWithClass(template)">
+                        <div class="card" style='background-image: url("{{course_en.My_Image_Url}}");'>
+                            <div class="card-body">
+                                <h5 class="card-title">{{course_en.TITLES}}</h5>
+                                <p class="card-text">{{course_en.DESCRIPTION}}</p>
+                                <div class="read-more"><a><i class="icofont-arrow-right"></i>Read More</a></div>>
+                            </div>
+                        </div>
+                    </a>
+                    <ng-template #template>
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">{{course_en.TITLES}}</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                        </div>
+                        <div class="modal-body">
+                            <section id="event-list" class="event-list">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 d-flex align-items-stretch">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src={{course_en.My_Image_Url}} alt="...">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{course_en.TITLES}}</h5>
+                                                    <p class="fst-italic text-center">{{course_en.DATE}}</p>
+                                                    <p class="card-text">{{course_en.DESCRIPTION}}</p>
+                                                    <pre class="pre-en">{{course_en.GOALS}}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2 *ngIf="lang === 'en'">Arabic</h2>
+                <h2 *ngIf="lang === 'ar'">عربي</h2>
+            </div>
+            <div class="row justify-center" style="padding-bottom: 60px">
+                <div class="col-md-6 d-flex align-items-stretch" *ngFor="let course_ar of courses_ar">
+                    <a (click)="openModalWithClass(template)">
+                        <div class="card" style='background-image: url("{{course_ar.My_Image_Url}}");'>
+                            <div class="card-body">
+                                <h5 class="card-title rtl">{{course_ar.TITLES}}</h5>
+                                <p class="card-text rtl">{{course_ar.DESCRIPTION}}</p>
+                                <div class="read-more rtl"><a><i class="icofont-arrow-left"></i>قراءة المزيد</a></div>
+                            </div>
+                        </div>
+                    </a>
+                    <ng-template #template>
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">{{course_ar.TITLES}}</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        </div>
+                        <div class="modal-body">
+                            <section id="event-list" class="event-list">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 d-flex align-items-stretch">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src={{course_ar.My_Image_Url}} alt="...">
+                                                </div>
+                                                <div class="card-body rtl">
+                                                    <h5 class="card-title">{{course_ar.TITLES}}</h5>
+                                                    <p class="fst-italic text-center">{{course_ar.DATE}}</p>
+                                                    <p class="card-text">{{course_ar.DESCRIPTION}}</p>
+                                                    <pre class="pre-ar">{{course_ar.GOALS}}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End Event List Section -->
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+
+
+            <div *ngIf="lang === 'ar'" class="section-title">
+                <h2>انجليزي</h2>
+            </div>
+            <div *ngIf="lang === 'ar'" class="row justify-center" style="padding-bottom: 60px">
+                <div class="col-md-6 d-flex align-items-stretch" *ngFor="let course_en of courses_en">
+                    <a (click)="openModalWithClass(template)">
+                        <div class="card" style='background-image: url("{{course_en.My_Image_Url}}");'>
+                            <div class="card-body">
+                                <h5 class="card-title">{{course_en.TITLES}}</h5>
+                                <p class="card-text">{{course_en.DESCRIPTION}}</p>
+                                <div class="read-more"><a><i class="icofont-arrow-right"></i>Read More</a></div>>
+                            </div>
+                        </div>
+                    </a>
+                    <ng-template #template>
+                        <div class="modal-header">
+                            <h4 class="modal-title pull-left">{{course_en.TITLES}}</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                        </div>
+                        <div class="modal-body">
+                            <section id="event-list" class="event-list">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 d-flex align-items-stretch">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src={{course_en.My_Image_Url}} alt="...">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{course_en.TITLES}}</h5>
+                                                    <p class="fst-italic text-center">{{course_en.DATE}}</p>
+                                                    <p class="card-text">{{course_en.DESCRIPTION}}</p>
+                                                    <pre class="pre-en">{{course_en.GOALS}}</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>

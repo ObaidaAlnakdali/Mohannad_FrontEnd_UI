@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Bluger_category, Socialmedia } from 'src/services/proxy.service';
+import { Courses, Personal, Socialmedia } from 'src/services/proxy.service';
 import { InfosvcService } from '../infosvc.service';
 
 @Component({
@@ -10,26 +10,35 @@ import { InfosvcService } from '../infosvc.service';
 })
 export class FooterComponent implements OnInit {
   social_media: Socialmedia[];
-  blugerCategory: Bluger_category[];
+  personal: Personal;
+  courses: Courses[];
   Email: string;
+  lang: string;
 
   constructor(private svc: InfosvcService, public translate: TranslateService) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getsocialMediaInfo();
-    this.getBlugerCategoryInfo();
+    this.getCoursesInfo();
+    this.getGeneralInfo();
   }
 
   ngOnInit(): void {}
 
-  getBlugerCategoryInfo() {
-    this.svc.getBlugerCategoryInfo(() => {
-      this.blugerCategory = this.svc.BlugerCategory;
-      console.log(this.blugerCategory);
+  getCoursesInfo() {
+    this.svc.getCoursesInfo(() => {
+      this.courses = this.svc.Courses;
     });
   }
 
   getsocialMediaInfo() {
     this.svc.getHeaderInfo(() => {
       this.social_media = this.svc.SocialMedia;
+    });
+  }
+
+  getGeneralInfo() {
+    this.svc.getGeneralInfo(() => {
+      this.personal = this.svc.Personal;
     });
   }
 

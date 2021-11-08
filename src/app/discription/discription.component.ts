@@ -19,9 +19,11 @@ export class DiscriptionComponent implements OnInit {
   id: number = 0;
   x = 0;
   gallary_item: Gallary_item[];
+  lang: string;
 
   constructor(private activatedrout: ActivatedRoute, private proxy: Proxy)
     {
+      this.lang = localStorage.getItem('lang') || 'ar';
       this.getGallaryItemInfo();
     }
 

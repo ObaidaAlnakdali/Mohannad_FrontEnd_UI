@@ -1,48 +1,54 @@
-
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
 
-    <h1 class="logo"><a routerLink="home">Muhannad</a></h1>
+        <h1 class="logo">
+            <a routerLink="home"><img style="margin-left: 40px" src="../../assets/img/ms.png"></a>
+        </h1>
 
-    <nav class="nav-menu d-none d-lg-block navbar" >
-      <ul>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/home">{{"HOME" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/about">{{"ABOUT" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/resume">{{"RESUME" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/publisher">{{"PUBLISHER" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/gallary">{{"GALLARY" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/bluger">{{"BLUGER" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/chance">{{"CHANCE" | translate}}</a></li>
-        <li (click)="navMabClose()" routerLinkActive="active"><a routerLink="/contact">{{"CONTACT" | translate}}</a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
+        <nav *ngIf="lang === 'ar'" class="nav-menu d-none d-lg-block navbar">
+            <ul class="ul_ar" (click)="navMabClose()">
+                <li routerLinkActive="active" routerLink="/home"><a>الرئيسية</a></li>
+                <li routerLinkActive="active" routerLink="/about"><a>عني</a></li>
+                <li routerLinkActive="active" routerLink="/publisher"><a>إصدارات</a></li>
+                <li routerLinkActive="active" routerLink="/gallary"><a>وسائط</a></li>
+                <li routerLinkActive="active" routerLink="/courses"><a>دورات</a></li>
+                <li routerLinkActive="active" routerLink="/bluger"><a>مدونتي</a></li>
+                <li routerLinkActive="active" routerLink="/chance"><a>فرص</a></li>
+                <li routerLinkActive="active" routerLink="/contact"><a>تواصل</a></li>
+            </ul>
+        </nav>
 
-    <div class="header-social-links">
-      <a *ngFor="let social of social_media"
-        href={{social.URL}}
-        class={{social.NAME}} target="_blank">
-        <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
-      </a>
-    </div>
+        <nav *ngIf="lang === 'en'" class="nav-menu d-none d-lg-block navbar">
+            <ul class="ul_en" (click)="navMabClose()">
+                <li routerLinkActive="active" routerLink="/home"><a>Home</a></li>
+                <li routerLinkActive="active" routerLink="/about"><a>About</a></li>
+                <li routerLinkActive="active" routerLink="/publisher"><a>Publisher</a></li>
+                <li routerLinkActive="active" routerLink="/gallary"><a>Gallary</a></li>
+                <li routerLinkActive="active" routerLink="/courses"><a>Courses</a></li>
+                <li routerLinkActive="active" routerLink="/bluger"><a>Bluger</a></li>
+                <li routerLinkActive="active" routerLink="/contact"><a>Contact</a></li>
+            </ul>
+        </nav>
+        <!-- .nav-menu -->
 
-    <button class="menu-toggler" (click)="navMabOpen()">
+        <div class="header-social-links">
+            <a *ngFor="let social of social_media" href={{social.URL}} class={{social.NAME}} target="_blank">
+                <i class="{{'icofont-' + social.NAME | lowercase}}"></i>
+            </a>
+        </div>
+
+        <button class="menu-toggler" (click)="navMabOpen()">
       <span></span>
       <span></span>
       <span></span>
     </button>
-  </div>
-</header><!-- End Header -->
+    </div>
+</header>
+<!-- End Header -->
 
 <div class="div-nave d-none">
-  <button type="button" class="nav-toggle " (click)="navMabClose()"><i class="icofont-close"></i></button>
-  <nav id="nav-mob" class="nav-mob "></nav>
-  <div class="nav-overly" style="display: block;"></div>
+    <button type="button" class="nav-toggle " (click)="navMabClose()"><i class="icofont-close"></i></button>
+    <nav (click)="top()" id="nav-mob" class="nav-mob"></nav>
+    <div class="nav-overly" style="display: block;"></div>
 </div>
-
-
-
-
-
-
-

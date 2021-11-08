@@ -1,65 +1,170 @@
-[<main id="main" *ngIf="personal != null">
+<main id="main" *ngIf="personal != null">
 
-  <div class="Popular-chances-mob">
-    <button>N</button>
-    <div>
-      <h3>Popular Chances</h3>
-      <ul>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-      </ul>
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services container" data-aos="fade-up">
+
+
+        <div class="section-title">
+            <h2>فرص</h2>
+            <p>{{personal.CHANCE_DESCRIPTION_AR}}</p>
+        </div>
+
+        <div class="chances">
+
+            <div class="col-lg-4 col-md-3 single-blog-page">
+                <div class="left-blog rlt">
+                    <h4 class="bold">الفرص المتاحة</h4>
+                    <ul>
+                        <li *ngFor="let chance of chancesActive">
+                            <a (click)="openModal(template)">{{chance.TITLE}}</a>
+
+                            <ng-template #template>
+
+                                <div class="modal-header">
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                                </div>
+
+                                <div class="modal-body rlt">
+                                    <section id="services" class="services">
+                                        <div class="container bold" data-aos="fade-up">
+
+                                            <div class="section-title-popout">
+                                                <h2 class="bold">{{chance.TITLE}}</h2>
+                                            </div>
+                                            <div class="chance_items">
+                                                <div class="items">
+                                                    <div class="col-md-12 items-desc">
+                                                        <p>{{chance.CONTENT}}</p>
+                                                    </div>
+                                                    <div class="col-md-12 items-info">
+                                                        <p>لغة الفرصة :&nbsp;<span>{{chance.CHANCE_LANG}}</span></p>
+                                                        <p>نوع الفرصة : &nbsp;<span>{{chance.TYPE}}</span></p>
+                                                        <p>رابط الفرصة : &nbsp;<a href="{{chance.LINK}}" target="_blank">Click here</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </ng-template>
+                        </li>
+                        <li *ngFor="let chance of chancesActive">
+                            <a (click)="openModal(template)">{{chance.TITLE}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ======= Features Section ======= -->
+            <section id="features" class="features rlt" style="padding: 10px;">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 icon-box" *ngFor="let chance of chances">
+                            <div class="icon"><i class="bi bi-{{chance.ICON}}"></i></div>
+                            <div>
+                                <h4 class="title"><a (click)="openModal(template)">{{chance.TITLE}}</a></h4>
+                                <p class="description">{{chance.DESCRIPTION}}</p>
+                                <!-- <p (click)="openModal(template)" target="_blank" class="chance-readmore">Read more</p> -->
+                                <div class="read-more"><a (click)="openModal(template)"><i class="icofont-arrow-right"></i> Read
+                      More</a></div>
+                            </div>
+
+                            <ng-template #template>
+
+                                <div class="modal-header">
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                                </div>
+
+                                <div class="modal-body rlt">
+                                    <section id="services" class="services">
+                                        <div class="container bold" data-aos="fade-up">
+
+                                            <div class="section-title-popout">
+                                                <h2 class="bold">{{chance.TITLE}}</h2>
+                                            </div>
+                                            <div class="chance_items">
+                                                <div class="items">
+                                                    <div class="col-md-12 items-desc">
+                                                        <p>{{chance.CONTENT}}</p>
+                                                    </div>
+                                                    <div class="col-md-12 items-info">
+                                                        <p>لغة الفرصة :&nbsp;<span>{{chance.CHANCE_LANG}}</span></p>
+                                                        <p>نوع الفرصة : &nbsp;<span>{{chance.TYPE}}</span></p>
+                                                        <p>رابط الفرصة : &nbsp;<a href="{{chance.LINK}}" target="_blank">Click here</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </ng-template>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- End Features Section -->
+
+        </div>
+
+    </section>
+    <!-- End Services Section -->
+
+    <div class="col-lg-4 col-md-3 single-blog-page-mob">
+        <div class="left-blog rlt">
+            <h4 class="bold">الفرص المتاحة</h4>
+            <ul>
+                <li *ngFor="let chance of chancesActive">
+                    <a (click)="openModal(template)">{{chance.TITLE}}</a>
+
+                    <ng-template #template>
+
+                        <div class="modal-header">
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                        </div>
+
+                        <div class="modal-body rlt">
+                            <section id="services" class="services">
+                                <div class="container bold" data-aos="fade-up">
+
+                                    <div class="section-title-popout">
+                                        <h2 class="bold">{{chance.TITLE}}</h2>
+                                    </div>
+                                    <div class="chance_items">
+                                        <div class="items">
+                                            <div class="col-md-12 items-desc">
+                                                <p>{{chance.CONTENT}}</p>
+                                            </div>
+                                            <div class="col-md-12 items-info">
+                                                <p>لغة الفرصة :&nbsp;<span>{{chance.CHANCE_LANG}}</span></p>
+                                                <p>نوع الفرصة : &nbsp;<span>{{chance.TYPE}}</span></p>
+                                                <p>رابط الفرصة : &nbsp;<a href="{{chance.LINK}}" target="_blank">Click here</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    </ng-template>
+                </li>
+                <li *ngFor="let chance of chancesActive">
+                    <a (click)="openModal(template)">{{chance.TITLE}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 
-  </div>
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Chances</h2>
-        <p>{{personal.BLUGER_DESCRIPTION}}</p>
-      </div>
-
-      <div class="chances">
-
-      <div class="Popular-chances">
-        <h3>Popular Chances</h3>
-        <ul>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-          <li *ngFor="let chance of chancesActive"><a>{{chance.TITLE | translate}}</a></li>
-        </ul>
-      </div>
-
-      <div class="chances-items">
-        <a *ngFor="let chance of chances" routerLink="/chance/{{chance.CHANCE_ID}}" >
-          <div class="chance-items-test">
-              <h3 *ngIf="lang === 'en'">{{chance.TITLE}}</h3>
-              <h3 *ngIf="lang === 'ar'">{{chance.TITLE_AR}}</h3>
-              <p *ngIf="lang === 'en'">{{chance.DESCRIPTION}}</p>
-              <p *ngIf="lang === 'ar'">{{chance.DESCRIPTION_AR}}</p>
-              <div class="items-info-test">
-                <span id="chance-date" class="background-item-green">{{chance.END_DATE}}</span>
-              </div>
-          </div>
-        </a>
-      </div>
-
-      </div>
-    </div>
-  </section><!-- End Services Section -->
-
-</main><!-- End #main -->
+</main>
+<!-- End #main -->
 ]

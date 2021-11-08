@@ -11,9 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class ContactComponent implements OnInit {
   personal: Personal;
+  lang: string;
   msg = new msgContact();
 
   constructor(private svc: InfosvcService, private proxy: Proxy) {
+    this.lang = localStorage.getItem('lang') || 'ar';
     this.getGeneralInfo();
   }
 

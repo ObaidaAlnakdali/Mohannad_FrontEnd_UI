@@ -1,324 +1,325 @@
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
+
 .pst-content {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 #portfolio-flters {
-  padding: 0;
-  margin: 5px 0 35px 0;
-  list-style: none;
-  text-align: center;
+    padding: 0;
+    margin: 5px 0 35px 0;
+    list-style: none;
+    text-align: center;
 }
 
 #portfolio-flters li {
-  cursor: pointer;
-  margin: 15px 15px 15px 0;
-  display: inline-block;
-  padding: 8px 24px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #555;
-  border-radius: 50px;
-  text-transform: uppercase;
-  background: #fff;
-  margin-bottom: 5px;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid #444;
+    cursor: pointer;
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+    padding: 8px 24px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #555;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: #fff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #444;
 }
 
-#portfolio-flters li:hover, #portfolio-flters li.filter-active {
-  border-color: #3EC1D5;
-  background: #3EC1D5;
-  color: #fff;
+#portfolio-flters li:hover,
+#portfolio-flters li.filter-active {
+    border-color: #3ec1d5;
+    background: #3ec1d5;
+    color: #fff;
 }
 
 #portfolio-flters li:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
-.space-evenly{
-  justify-content: center;
+.space-evenly {
+    justify-content: center;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .single-awesome-portfolio {
-  float: left;
-  overflow: hidden;
-  padding: 15px;
-  width: 25%;
-  position: relative;
+    float: left;
+    overflow: hidden;
+    padding: 15px;
+    width: 25%;
+    position: relative;
 }
 
 .single-awesome-project {
-  overflow: hidden;
-  margin-bottom: 30px;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .first-item {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .awesome-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.awesome-img > a {
-  display: block;
-  position: relative;
+.awesome-img>a {
+    display: block;
+    position: relative;
 }
 
-.single-awesome-project:hover .awesome-img > a::after {
-  opacity: 1;
+.single-awesome-project:hover .awesome-img>a::after {
+    opacity: 1;
 }
 
 .single-awesome-project:hover .add-actions {
-  opacity: 1;
-  bottom: 0;
+    opacity: 1;
+    bottom: 0;
 }
 
-.awesome-img > a::after {
-  background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  opacity: 0;
-  transition: 0.4s;
+.awesome-img>a::after {
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .add-actions {
-  background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-  bottom: 30px;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 10px 15px;
-  position: absolute;
-  transition: all 0.4s ease 0s;
-  width: 100%;
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+    bottom: 30px;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 10px 15px;
+    position: absolute;
+    transition: all 0.4s ease 0s;
+    width: 100%;
 }
 
 .project-dec {
-  display: block;
-  height: 100%;
-  width: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .project-dec a {
-  display: block;
-  height: 100%;
-  width: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .project-dec h4 {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .project-dec h4:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .project-dec h4 {
-  color: #ddd;
-  font-size: 24px;
-  margin-top: -45px;
-  padding-top: 50%;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 800;
+    color: #ddd;
+    font-size: 24px;
+    margin-top: -45px;
+    padding-top: 50%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .project-dec span {
-  color: #ddd;
-  font-size: 13px;
+    color: #ddd;
+    font-size: 13px;
 }
 
 .project-action-btn {
-  display: block;
-  height: 100%;
-  text-align: center;
-  transition: all 1s ease 0s;
-  width: 100%;
+    display: block;
+    height: 100%;
+    text-align: center;
+    transition: all 1s ease 0s;
+    width: 100%;
 }
 
 .project-action-btn li {
-  display: block;
-  height: 100%;
-  width: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .project-action-btn li a {
-  display: block;
-  height: 100%;
-  width: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
-.col-custome{
-  flex : 0 0 25%;
-  max-width: 25%;
+.col-custome {
+    flex: 0 0 25%;
+    max-width: 25%;
 }
+
 
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+
 .blog-area {
-  height: auto;
-  width: 100%;
-  margin-bottom: 50px;
-  margin-top: 50px;
+    height: auto;
+    width: 100%;
+    margin-bottom: 50px;
 }
 
 .blog-text h4 a {
-  color: #444;
-  text-decoration: none;
+    color: #444;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .blog-text h4 {
-  color: #444;
-  margin: 15px 0px;
+    color: #444;
+    margin: 15px 0px;
 }
 
 .blog-btn {
-  border-bottom: 1px dotted #444;
-  color: #444;
-  text-decoration: none;
+    border-bottom: 1px dotted #444;
+    color: #444;
+    text-decoration: none;
 }
 
 .blog-btn {
-  border-bottom: 1px dotted #444;
-  color: #444;
-  display: inline-block;
-  padding: 0 1px 5px 0;
-  position: relative;
-  text-decoration: none;
+    border-bottom: 1px dotted #444;
+    color: #444;
+    display: inline-block;
+    padding: 0 1px 5px 0;
+    position: relative;
+    text-decoration: none;
 }
 
 .blog-btn {
-  position: relative;
+    position: relative;
 }
 
 .blog-btn::after {
-  content: "\f178";
-  font-family: fontawesome;
-  position: absolute;
-  right: -20px;
-  top: 1px;
-  transition: all 0.3s ease 0s;
+    content: "\f178";
+    font-family: fontawesome;
+    position: absolute;
+    right: -20px;
+    top: 1px;
+    transition: all 0.3s ease 0s;
 }
 
 .blog-btn:hover::after {
-  right: -30px;
+    right: -30px;
 }
 
 .blog-btn:hover {
-  color: #333;
-  text-decoration: none;
+    color: #333;
+    text-decoration: none;
 }
 
 .blog_meta span.date_type i {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 .blog-meta span.comments-type {
-  margin-left: 5px;
+    margin-left: 5px;
 }
 
 .blog-meta span i {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 
 .blog-content .blog-meta {
-  border-bottom: 1px dotted #333;
+    border-bottom: 1px dotted #333;
 }
 
 .blog-meta {
-  border-bottom: 1px dotted #fff;
-  padding: 10px 0;
+    border-bottom: 1px dotted #fff;
+    padding: 10px 0;
 }
 
-.comments-type > a, .date-type, .blog-meta span.comments-type {
-  color: #333;
-  letter-spacing: 1px;
-  margin-right: 5px;
+.comments-type>a,
+.date-type,
+.blog-meta span.comments-type {
+    color: #333;
+    letter-spacing: 1px;
+    margin-right: 5px;
 }
 
 .blog-meta .comments-type i {
-  padding-right: 0 !important;
+    padding-right: 0 !important;
 }
 
-.blog-content-right .comments-type > a, .blog-content-right .date-type, .blog-content-right .blog-meta span.comments-type, .blog-content-right .blog-text p {
-  color: #fff;
-  letter-spacing: 1px;
+.blog-content-right .comments-type>a,
+.blog-content-right .date-type,
+.blog-content-right .blog-meta span.comments-type,
+.blog-content-right .blog-text p {
+    color: #fff;
+    letter-spacing: 1px;
 }
 
-.single-blog{
-  margin-bottom: 30px;
-  text-align: center;
+.single-blog {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .single-blog .ready-btn {
-  border: 1px solid #444;
-  border-radius: 30px;
-  color: #444;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 500;
-  margin-top: 10px;
-  padding: 10px 20px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: all 0.4s ease 0s;
+    border: 1px solid #444;
+    border-radius: 30px;
+    color: #444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
 }
 
 .single-blog .ready-btn:hover {
-  border: 1px solid #34b7a7;
-  color: #fff;
-  background-color: #34b7a7;
+    border: 1px solid #eb3f42;
+    color: #fff;
+    background-color: #eb3f42;
 }
 
-@import "~swiper/swiper";
-@import "~swiper/components/navigation/navigation";
-.swiper-container {
-  width: 100%;
+@media (max-width: 780px) {
+    .blog-text h4 {
+        font-size: 15px !important;
+    }
+    .single-blog .ready-btn {
+        font-size: 10px;
+    }
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+@media (max-width: 500px) {
+    .col-custome {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .single-blog .ready-btn {
+        font-size: 8px;
+        margin: 0;
+    }
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  margin-bottom: 40px;
-  cursor: grab;
+.portfolio-item {
+    cursor: pointer;
 }

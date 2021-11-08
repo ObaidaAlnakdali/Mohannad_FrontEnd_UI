@@ -10,7 +10,6 @@ export class ExperienceComponent implements OnInit {
   constructor() { }
   @Input () Title = '';
   @Input () Date = '';
-  @Input () Address = '';
   ngOnInit(): void {
   }
 
